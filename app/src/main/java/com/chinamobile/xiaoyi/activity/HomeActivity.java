@@ -40,7 +40,7 @@ public class HomeActivity extends AppBaseActivity {
     public void initViews() {
         mMapView = (MapView) findViewById(R.id.bmapView);
         mBaiduMap = mMapView.getMap();
-        mBaiduMap.setMapType(BaiduMap.MAP_TYPE_NORMAL);
+        mBaiduMap.setMapType(BaiduMap.MAP_TYPE_NORMAL);//sadasdsadasd
 
         mLocationClient = new LocationClient(this);
         LocationClientOption option = new LocationClientOption();
