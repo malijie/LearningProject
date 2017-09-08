@@ -4,6 +4,12 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
+    <Button
+        android:id="@+id/id_home_btn_back_home"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="回到我的位置"/>
+
     <com.baidu.mapapi.map.MapView
         android:id="@+id/bmapView"
         android:layout_width="match_parent"
