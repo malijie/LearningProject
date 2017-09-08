@@ -3,8 +3,9 @@ package com.chinamobile.xiaoyi;
 import android.app.Application;
 import android.content.Context;
 
+import com.baidu.mapapi.SDKInitializer;
 import com.base.lib.control.CommonLibManager;
-import com.chinamobile.xiaoyi.map.BaiduMapManager;
+import com.chinamobile.xiaoyi.map.BaiduMapController;
 
 /**
  * Created by malijie on 2017/9/7.
@@ -23,6 +24,6 @@ public class XiaoYiHelpApplication  extends Application {
         super.onCreate();
         mContext = getApplicationContext();
         CommonLibManager.init(getApplicationContext());
-        BaiduMapManager.init();
+        SDKInitializer.initialize(XiaoYiHelpApplication.mContext);
     }
 }
