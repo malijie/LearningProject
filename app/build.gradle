@@ -50,4 +50,5 @@ dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
     compile 'com.android.support:appcompat-v7:22.2.1'
     compile project(':baseLlib')
+    compile files('libs/BaiduTraceSDK_v3_0_4.jar')
 }

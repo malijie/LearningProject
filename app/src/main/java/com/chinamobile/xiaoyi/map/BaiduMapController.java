@@ -1,13 +1,11 @@
 package com.chinamobile.xiaoyi.map;
 
 import android.app.Activity;
-import android.content.Context;
 
 import com.baidu.location.BDLocation;
 import com.baidu.location.BDLocationListener;
 import com.baidu.location.LocationClient;
 import com.baidu.location.LocationClientOption;
-import com.baidu.mapapi.SDKInitializer;
 import com.baidu.mapapi.map.BaiduMap;
 import com.baidu.mapapi.map.BitmapDescriptor;
 import com.baidu.mapapi.map.MapStatus;
@@ -17,8 +15,6 @@ import com.baidu.mapapi.map.MyLocationConfiguration;
 import com.baidu.mapapi.map.MyLocationData;
 import com.baidu.mapapi.model.LatLng;
 import com.chinamobile.xiaoyi.R;
-import com.chinamobile.xiaoyi.XiaoYiHelpApplication;
-import com.chinamobile.xiaoyi.activity.HomeActivity;
 
 /**
  * Created by malijie on 2017/9/7.
