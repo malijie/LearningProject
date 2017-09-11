@@ -1,6 +1,8 @@
 package com.base.lib.base;
 
 import android.app.ProgressDialog;
+import android.os.Bundle;
+import android.support.annotation.Nullable;
 
 import com.base.lib.app.ActionCallback;
 import com.base.lib.http.DefaultThreadPool;
@@ -15,6 +17,12 @@ public abstract class AppBaseActivity extends BaseActivity {
     public ProgressDialog mProgressDialog = null;
     public DefaultThreadPool mThreadPool =  DefaultThreadPool.getInstance();
 
+    @Override
+    protected void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(getContentViewId());
+    }
+
     public abstract class RequestCallback<T> implements ActionCallback<T>{
         @Override
         public void onFailed(String errorMsg) {
@@ -27,6 +35,13 @@ public abstract class AppBaseActivity extends BaseActivity {
 
         }
     }
+
+    /**
+     * 获取布局文件ID
+     *
+     * @return 布局文件ID
+     */
+    protected abstract int getContentViewId();
 
     public abstract void initViews();
     public abstract void initData();

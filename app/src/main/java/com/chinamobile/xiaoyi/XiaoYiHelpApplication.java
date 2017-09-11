@@ -14,14 +14,18 @@ import com.baidu.mapapi.SDKInitializer;
 import com.baidu.trace.LBSTraceClient;
 import com.baidu.trace.Trace;
 import com.baidu.trace.api.entity.LocRequest;
+import com.baidu.trace.api.entity.OnEntityListener;
+import com.baidu.trace.api.track.LatestPointRequest;
+import com.baidu.trace.api.track.OnTrackListener;
 import com.baidu.trace.model.OnCustomAttributeListener;
+import com.baidu.trace.model.ProcessOption;
 import com.base.lib.control.CommonLibManager;
-import com.chinamobile.xiaoyi.map.BaiduMapController;
+import com.chinamobile.xiaoyi.activity.TracingActivity;
+import com.chinamobile.xiaoyi.util.BitmapUtil;
 import com.chinamobile.xiaoyi.util.CommonUtil;
+import com.chinamobile.xiaoyi.util.NetUtil;
 
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 import java.util.concurrent.atomic.AtomicInteger;
 
@@ -89,6 +93,7 @@ public class XiaoYiHelpApplication  extends Application {
         mContext = getApplicationContext();
         CommonLibManager.init(getApplicationContext());
         SDKInitializer.initialize(XiaoYiHelpApplication.mContext);
+        BitmapUtil.init();
 
         entityName = CommonUtil.getImei(this);
 
@@ -97,7 +102,6 @@ public class XiaoYiHelpApplication  extends Application {
             return;
         }
 
-        SDKInitializer.initialize(mContext);
 //        initView();
         initNotification();
         mClient = new LBSTraceClient(mContext);
@@ -138,6 +142,36 @@ public class XiaoYiHelpApplication  extends Application {
 
         notification = builder.build(); // 获取构建好的Notification
         notification.defaults = Notification.DEFAULT_SOUND; //设置为默认的声音
+    }
+
+    /**
+     * 获取当前位置
+     */
+    public void getCurrentLocation(OnEntityListener entityListener, OnTrackListener trackListener) {
+        // 网络连接正常，开启服务及采集，则查询纠偏后实时位置；否则进行实时定位
+        if (NetUtil.isNetworkAvailable(mContext)
+                && trackConf.contains("is_trace_started")
+                && trackConf.contains("is_gather_started")
+                && trackConf.getBoolean("is_trace_started", false)
+                && trackConf.getBoolean("is_gather_started", false)) {
+            LatestPointRequest request = new LatestPointRequest(getTag(), serviceId, entityName);
+            ProcessOption processOption = new ProcessOption();
+            processOption.setNeedDenoise(true);
+            processOption.setRadiusThreshold(100);
+            request.setProcessOption(processOption);
+            mClient.queryLatestPoint(request, trackListener);
+        } else {
+            mClient.queryRealTimeLoc(locRequest, entityListener);
+        }
+    }
+
+    /**
+     * 获取请求标识
+     *
+     * @return
+     */
+    public int getTag() {
+        return mSequenceGenerator.incrementAndGet();
     }
 
     /**
