@@ -15,6 +15,7 @@ import android.os.PowerManager;
 import android.provider.Settings;
 import android.support.annotation.Nullable;
 import android.support.v4.content.res.ResourcesCompat;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
@@ -328,6 +329,8 @@ public class TracingActivity extends AppBaseActivity implements View.OnClickList
                 if (null != mapUtil) {
                     mapUtil.updateStatus(currentLatLng, true);
                 }
+
+Log.d("MLJ","2===latitude=" + currentLatLng.latitude + ",longitude=" + currentLatLng.longitude);
             }
 
         };
