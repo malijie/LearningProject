@@ -1,5 +1,6 @@
 package com.base.lib.base;
 
+import android.app.Activity;
 import android.app.ProgressDialog;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -13,6 +14,8 @@ import com.base.lib.utils.ToastManager;
  */
 
 public abstract class AppBaseActivity extends BaseActivity {
+    public static final String TITLE_ADD_DEVICE = "添加设备";
+
     private static final String TAG = AppBaseActivity.class.getSimpleName();
     public ProgressDialog mProgressDialog = null;
     public DefaultThreadPool mThreadPool =  DefaultThreadPool.getInstance();
@@ -45,4 +48,8 @@ public abstract class AppBaseActivity extends BaseActivity {
 
     public abstract void initViews();
     public abstract void initData();
+
+    public void finish(Activity activity){
+        activity.finish();
+    }
 }

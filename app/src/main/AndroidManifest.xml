@@ -40,7 +40,7 @@
 
         <activity android:name=".ui.activity.TracingActivity"/>
         <activity android:name=".ui.activity.AddDeviceActivity"/>
-
+        <activity android:name=".ui.activity.AddDeviceDetailActivity"/>
         <service android:name="com.baidu.location.f"
             android:enabled="true"
             android:process=".remote">
