@@ -1,6 +1,7 @@
 package com.chinamobile.xiaoyi.ui.fragment;
 
 import android.app.Fragment;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
@@ -12,6 +13,7 @@ import android.widget.TextView;
 
 import com.base.lib.utils.ToastManager;
 import com.chinamobile.xiaoyi.R;
+import com.chinamobile.xiaoyi.ui.activity.AddDeviceActivity;
 
 /**
  * Created by malijie on 2017/9/12.
@@ -19,6 +21,7 @@ import com.chinamobile.xiaoyi.R;
 
 public abstract class BaseFragment extends Fragment{
     private ImageButton mButtonBack =  null;
+    private ImageButton mButtonAdd = null;
     private LinearLayout mLayoutDevice = null;
     private TextView mTextTitle = null;
     private TextView mTextOption = null;
@@ -28,7 +31,14 @@ public abstract class BaseFragment extends Fragment{
         mLayoutDevice = view.findViewById(R.id.id_title_bar_layout_device);
         mTextTitle = view.findViewById(R.id.id_title_bar_text_title);
         mTextOption = view.findViewById(R.id.id_title_bar_text_option);
+        mButtonAdd = view.findViewById(R.id.id_title_bar_image_add);
 
+        mButtonAdd.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(view.getContext(),AddDeviceActivity.class));
+            }
+        });
         return view;
     }
 
@@ -38,6 +48,14 @@ public abstract class BaseFragment extends Fragment{
 
     public void hideBackButton(){
         mButtonBack.setVisibility(View.GONE);
+    }
+
+    public void showAddButton(){
+        mButtonAdd.setVisibility(View.VISIBLE);
+    }
+
+    public void hideAddButton(){
+        mButtonAdd.setVisibility(View.GONE);
     }
 
     public void showSubTitleLayout(){

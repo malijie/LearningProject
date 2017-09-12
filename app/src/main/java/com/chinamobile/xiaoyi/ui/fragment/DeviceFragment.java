@@ -140,7 +140,8 @@ public class DeviceFragment extends BaseFragment implements View.OnClickListener
         mButtonMap = v.findViewById(R.id.id_title_bar_button_map);
         mButtonList = v.findViewById(R.id.id_title_bar_button_list);
         showSubTitleLayout();
-        showOption();
+        showAddButton();
+        hideOption();
         hideTitle();
         hideBackButton();
         mButtonMap.setOnClickListener(this);
