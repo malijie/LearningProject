@@ -6,6 +6,14 @@
     android:layout_height="50dp"
     android:background="@color/app_red">
 
+    <ImageButton
+        android:id="@+id/id_title_bar_button_back"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@mipmap/back"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="10dp"/>
+
     <TextView
         android:id="@+id/id_title_bar_text_title"
         android:layout_width="wrap_content"
@@ -15,11 +23,13 @@
         android:textSize="@dimen/font_size_18"
         android:layout_centerInParent="true"/>
     <LinearLayout
+        android:id="@+id/id_title_bar_layout_device"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:orientation="horizontal"
         android:gravity="center"
         android:layout_alignParentTop="true"
+        android:visibility="gone"
         android:layout_centerHorizontal="true">
 
         <Button
@@ -39,6 +49,19 @@
             android:layout_toRightOf="@id/id_title_bar_button_map"
             android:background="@drawable/top_bar_right_button_selector"/>
     </LinearLayout>
+
+
+    <TextView
+        android:id="@+id/id_title_bar_text_option"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="下一步"
+        android:layout_alignParentRight="true"
+        android:layout_centerInParent="true"
+        android:layout_marginRight="10dp"
+        android:textSize="@dimen/font_size_16"
+        android:visibility="gone"
+        android:textColor="@color/white"/>
 
 
 </RelativeLayout>

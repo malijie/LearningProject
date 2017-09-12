@@ -13,7 +13,7 @@ import com.chinamobile.xiaoyi.R;
  * Created by malijie on 2017/9/12.
  */
 
-public class DeviceListFragment extends Fragment {
+public class DeviceListFragment extends BaseFragment {
 
     private FragmentManager fragmentManager;
 
@@ -27,4 +27,13 @@ public class DeviceListFragment extends Fragment {
         return messageLayout;
     }
 
+    @Override
+    public void initViews(View v) {
+
+    }
+
+    @Override
+    public void initData() {
+
+    }
 }

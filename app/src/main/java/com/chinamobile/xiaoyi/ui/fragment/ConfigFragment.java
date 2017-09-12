@@ -14,8 +14,8 @@ import com.chinamobile.xiaoyi.R;
  * Created by malijie on 2016/12/8.
  */
 
-public class ConfigFragment extends Fragment {
-
+public class ConfigFragment extends BaseFragment {
+    private static final String CONIF_TITLE_TEXT = "设置";
     private FragmentManager mSupportFragmentManager;
 
     public ConfigFragment(FragmentManager supportFragmentManager) {
@@ -25,8 +25,25 @@ public class ConfigFragment extends Fragment {
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View messageLayout = inflater.inflate(R.layout.config_layout, container, false);
-        return messageLayout;
+        View v = inflater.inflate(R.layout.config_layout, container, false);
+        super.onCreateView(v);
+
+        initViews(v);
+        initData();
+        return v;
     }
 
+    @Override
+    public void initViews(View v) {
+        hideBackButton();
+        hideOption();
+        hideSubTitleLayout();
+        showTitle();
+        setTitle(CONIF_TITLE_TEXT);
+    }
+
+    @Override
+    public void initData() {
+
+    }
 }

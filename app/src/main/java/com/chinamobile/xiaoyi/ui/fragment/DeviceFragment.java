@@ -8,7 +8,11 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageButton;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 
+import com.base.lib.base.AppBaseActivity;
 import com.base.lib.utils.Util;
 import com.chinamobile.xiaoyi.R;
 import com.chinamobile.xiaoyi.util.CommonUtil;
@@ -18,12 +22,13 @@ import com.chinamobile.xiaoyi.util.CommonUtil;
  * Created by malijie on 2016/12/8.
  */
 
-public class DeviceFragment extends Fragment implements View.OnClickListener{
+public class DeviceFragment extends BaseFragment implements View.OnClickListener{
     private Button mButtonMap = null;
     private Button mButtonList = null;
 
     private DeviceMapFragment mDeviceMapFragment;
     private DeviceListFragment mDeviceListFragment;
+
 
     private FragmentManager fragmentManager;
 
@@ -34,29 +39,15 @@ public class DeviceFragment extends Fragment implements View.OnClickListener{
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.device_layout, container, false);
+        super.onCreateView(v);
 
         initViews(v);
-        initDatas(v);
+        initData();
 
         setTabSelection(0);
         return v;
     }
 
-    /**
-     * 初始化视图
-     */
-    private void initDatas(View v) {
-    }
-
-    /**
-     * 初始化数据
-     */
-    private void initViews(View v) {
-        mButtonMap = v.findViewById(R.id.id_title_bar_button_map);
-        mButtonList = v.findViewById(R.id.id_title_bar_button_list);
-        mButtonMap.setOnClickListener(this);
-        mButtonList.setOnClickListener(this);
-    }
 
     @Override
     public void onClick(View view) {
@@ -141,6 +132,23 @@ public class DeviceFragment extends Fragment implements View.OnClickListener{
         mButtonList.setTextColor(CommonUtil.getColor(R.color.tab_black));
         mButtonList.setBackground(CommonUtil.getDrawable(R.drawable.top_bar_right_button_normal));
 
+
+    }
+
+    @Override
+    public void initViews(View v) {
+        mButtonMap = v.findViewById(R.id.id_title_bar_button_map);
+        mButtonList = v.findViewById(R.id.id_title_bar_button_list);
+        showSubTitleLayout();
+        showOption();
+        hideTitle();
+        hideBackButton();
+        mButtonMap.setOnClickListener(this);
+        mButtonList.setOnClickListener(this);
+    }
+
+    @Override
+    public void initData() {
 
     }
 }
