@@ -37,4 +37,18 @@
 
     <!-- 对话框标题颜色 -->
     <color name="dialog_title">#323232</color>
+
+    <color name="grey">#ececed</color>
+    <color name="background_grey">#f1f1f1</color>
+    <color name="background_white">#ffffff</color>
+    <color name="app_red">#F04848</color>
+    <color name="tab_black">#003333</color>
+    <color name="font_white">#FFFFFF</color>
+    <color name="font_black">#333333</color>
+    <color name="font_green">#7afa53</color>
+    <color name="font_grey">#8f8f8f</color>
+    <color name="font_hint_grey">#b4b4b4</color>
+    <color name="button_select_grey">#4A4C5B</color>
+    <color name="button_unselect_grey">#F3F4F9</color>
+
 </resources>

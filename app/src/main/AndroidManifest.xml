@@ -30,14 +30,16 @@
             android:name="com.baidu.lbsapi.API_KEY"
             android:value="iGDjzTXDiLjR3uzOdv44z9mytTpNRgR5" />
 
-        <activity android:name=".activity.TracingActivity" >
+        <activity android:name=".ui.activity.MainActivity" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        
+
+        <activity android:name=".ui.activity.TracingActivity"/>
+
         <service android:name="com.baidu.location.f"
             android:enabled="true"
             android:process=".remote">

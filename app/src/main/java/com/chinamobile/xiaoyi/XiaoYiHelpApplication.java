@@ -20,7 +20,7 @@ import com.baidu.trace.api.track.OnTrackListener;
 import com.baidu.trace.model.OnCustomAttributeListener;
 import com.baidu.trace.model.ProcessOption;
 import com.base.lib.control.CommonLibManager;
-import com.chinamobile.xiaoyi.activity.TracingActivity;
+import com.chinamobile.xiaoyi.ui.activity.TracingActivity;
 import com.chinamobile.xiaoyi.util.BitmapUtil;
 import com.chinamobile.xiaoyi.util.CommonUtil;
 import com.chinamobile.xiaoyi.util.NetUtil;

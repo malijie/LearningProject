@@ -1,4 +1,4 @@
-package com.chinamobile.xiaoyi.activity;
+package com.chinamobile.xiaoyi.ui.activity;
 
 import android.app.Notification;
 import android.app.NotificationManager;
@@ -13,7 +13,6 @@ import android.os.Handler;
 import android.os.Message;
 import android.os.PowerManager;
 import android.provider.Settings;
-import android.support.annotation.Nullable;
 import android.support.v4.content.res.ResourcesCompat;
 import android.util.Log;
 import android.view.View;

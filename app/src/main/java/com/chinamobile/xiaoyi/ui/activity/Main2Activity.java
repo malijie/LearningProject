@@ -1,4 +1,4 @@
-package com.chinamobile.xiaoyi.activity;
+package com.chinamobile.xiaoyi.ui.activity;
 
 import android.os.Bundle;
 import android.view.View;
@@ -14,8 +14,8 @@ import com.chinamobile.xiaoyi.R;
 
 import java.util.List;
 
-public class MainActivity extends AppBaseActivity {
-    private static final String TAG = MainActivity.class.getSimpleName();
+public class Main2Activity extends AppBaseActivity {
+    private static final String TAG = Main2Activity.class.getSimpleName();
     private Button mButton = null;
     private Button mButtonSecond = null;
     private GridView mGridView = null;
@@ -30,7 +30,7 @@ public class MainActivity extends AppBaseActivity {
         mButtonSecond.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                startActivity(new Intent(MainActivity.this,SecondActivity.class));
+//                startActivity(new Intent(Main2Activity.this,SecondActivity.class));
             }
         });
 
@@ -44,7 +44,7 @@ public class MainActivity extends AppBaseActivity {
     private View.OnClickListener onClickGetPicture = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
-            mProgressDialog = Util.createProgressDialog(MainActivity.this,getResources().getString(R.string.loading_progress_tip));
+            mProgressDialog = Util.createProgressDialog(Main2Activity.this,getResources().getString(R.string.loading_progress_tip));
             mProgressDialog.show();
 
             RequestParams params = new RequestParams();

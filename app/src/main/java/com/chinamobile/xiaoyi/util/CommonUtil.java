@@ -208,4 +208,9 @@ public class CommonUtil {
         return imei;
     }
 
+    public static int getColor(int res){
+        return XiaoYiHelpApplication.mContext.getResources().getColor(res);
+    }
+
+
 }

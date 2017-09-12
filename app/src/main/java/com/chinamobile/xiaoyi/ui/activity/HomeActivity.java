@@ -1,12 +1,10 @@
-package com.chinamobile.xiaoyi.activity;
+package com.chinamobile.xiaoyi.ui.activity;
 
-import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 
 import com.base.lib.base.AppBaseActivity;
 import com.chinamobile.xiaoyi.R;
-import com.chinamobile.xiaoyi.XiaoYiHelpApplication;
 import com.chinamobile.xiaoyi.map.BaiduMapController;
 
 
