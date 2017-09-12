@@ -3,6 +3,7 @@ package com.chinamobile.xiaoyi.util;
 import android.app.ActivityManager;
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.graphics.drawable.Drawable;
 import android.telephony.TelephonyManager;
 
 import com.baidu.mapapi.model.LatLng;
@@ -210,6 +211,10 @@ public class CommonUtil {
 
     public static int getColor(int res){
         return XiaoYiHelpApplication.mContext.getResources().getColor(res);
+    }
+
+    public static Drawable getDrawable(int res){
+        return XiaoYiHelpApplication.mContext.getResources().getDrawable(res,null);
     }
 
 

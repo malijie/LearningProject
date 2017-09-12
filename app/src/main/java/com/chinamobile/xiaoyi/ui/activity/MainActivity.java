@@ -53,22 +53,20 @@ public class MainActivity extends AppBaseActivity implements View.OnClickListene
         setTabSelection(0);
     }
 
-
-
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.id_bottom_device_layout:
-                // 当点击了分答tab时，选中第1个tab
+                // 当点击了设备tab
                 setTabSelection(TAB_DEVICE_INDEX);
 
                 break;
             case R.id.id_bottom_msg_layout:
-                // 当点击了活动tab时，选中第2个tab
+                // 当点击了消息tab
                 setTabSelection(TAB_MSG_INDEX);
                 break;
             case R.id.id_bottom_config_layout:
-                // 当点击了拼车tab时，选中第3个tab
+                // 当点击了设置tab
                 setTabSelection(TAB_CONFIG_INDEX);
 
                 break;
@@ -77,12 +75,10 @@ public class MainActivity extends AppBaseActivity implements View.OnClickListene
         }
     }
 
-
     /**
      * 根据传入的index参数来设置选中的tab页。
      *
      * @param index
-     *            每个tab页对应的下标。0表示消息，1表示联系人，2表示动态，3表示设置。
      */
     private void setTabSelection(int index) {
         // 每次选中之前先清楚掉上次的选中状态
@@ -98,7 +94,7 @@ public class MainActivity extends AppBaseActivity implements View.OnClickListene
                 mDeviceText.setTextColor(CommonUtil.getColor(R.color.app_red));
                 if (mDeviceFragment == null) {
                     // 如果MessageFragment为空，则创建一个并添加到界面上
-                    mDeviceFragment = new DeviceFragment(getSupportFragmentManager());
+                    mDeviceFragment = new DeviceFragment(getFragmentManager());
                     transaction.add(R.id.id_layout_content, mDeviceFragment);
                 } else {
                     // 如果MessageFragment不为空，则直接将它显示出来
