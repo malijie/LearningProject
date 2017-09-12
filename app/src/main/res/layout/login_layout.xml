@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <com.chinamobile.xiaoyi.ui.wedgit.CircleImageView
+        android:id="@+id/id_login_image_icon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@mipmap/icon_app"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="60dp"/>
+    <TextView
+        android:id="@+id/id_login_text_tip"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="在你身边"
+        android:layout_below="@id/id_login_image_icon"
+        android:textSize="@dimen/font_size_20"
+        android:gravity="center"
+        android:layout_marginTop="10dp"/>
+
+    <EditText
+        android:id="@+id/id_login_et_phone"
+        android:layout_width="180dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/edit_bg"
+        android:layout_below="@id/id_login_text_tip"
+        android:layout_marginTop="10dp"
+        android:layout_centerHorizontal="true"
+        android:drawableLeft="@mipmap/add"
+        android:paddingLeft="10dp"
+        android:textSize="@dimen/font_size_14"
+        android:hint="  请输入手机号"/>
+
+    <EditText
+        android:id="@+id/id_login_et_pwd"
+        android:layout_width="180dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/edit_bg"
+        android:layout_below="@id/id_login_et_phone"
+        android:layout_marginTop="10dp"
+        android:layout_centerHorizontal="true"
+        android:drawableLeft="@mipmap/add"
+        android:paddingLeft="10dp"
+        android:textSize="@dimen/font_size_14"
+        android:hint="  密码"/>
+    <Button
+        android:id="@+id/id_login_button_login"
+        android:layout_width="160dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/id_login_et_pwd"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:text="登录"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/id_login_button_login"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp">
+        <TextView
+            android:id="@+id/id_login_text_register"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="注册会员"
+            android:textSize="@dimen/font_size_14"
+            android:gravity="center"/>
+        <TextView
+            android:id="@+id/id_login_text_forget_pwd"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textSize="@dimen/font_size_14"
+            android:text="忘记密码"
+            android:gravity="center"/>
+    </LinearLayout>
+
+
+</RelativeLayout>

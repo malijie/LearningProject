@@ -50,5 +50,7 @@
     <color name="font_hint_grey">#b4b4b4</color>
     <color name="button_select_grey">#4A4C5B</color>
     <color name="button_unselect_grey">#F3F4F9</color>
+    <color name="grey_line">#a9a6a6</color>
+
 
 </resources>
