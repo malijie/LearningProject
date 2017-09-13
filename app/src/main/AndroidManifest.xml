@@ -44,6 +44,7 @@
         <activity android:name=".ui.activity.AddDeviceActivity"/>
         <activity android:name=".ui.activity.AddDeviceDetailActivity"/>
         <activity android:name=".ui.activity.RegisterActivity"/>
+        <activity android:name=".ui.activity.DeviceDetailActivity"/>
 
         <service android:name="com.baidu.location.f"
             android:enabled="true"
