@@ -14,8 +14,8 @@ import com.chinamobile.xiaoyi.R;
 
 import java.util.List;
 
-public class Main2Activity extends AppBaseActivity {
-    private static final String TAG = Main2Activity.class.getSimpleName();
+public class TestActivity extends AppBaseActivity {
+    private static final String TAG = TestActivity.class.getSimpleName();
     private Button mButton = null;
     private Button mButtonSecond = null;
     private GridView mGridView = null;
@@ -30,7 +30,7 @@ public class Main2Activity extends AppBaseActivity {
         mButtonSecond.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                startActivity(new Intent(Main2Activity.this,SecondActivity.class));
+//                startActivity(new Intent(TestActivity.this,SecondActivity.class));
             }
         });
 
@@ -44,7 +44,7 @@ public class Main2Activity extends AppBaseActivity {
     private View.OnClickListener onClickGetPicture = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
-            mProgressDialog = Util.createProgressDialog(Main2Activity.this,getResources().getString(R.string.loading_progress_tip));
+            mProgressDialog = Util.createProgressDialog(TestActivity.this,getResources().getString(R.string.loading_progress_tip));
             mProgressDialog.show();
 
             RequestParams params = new RequestParams();

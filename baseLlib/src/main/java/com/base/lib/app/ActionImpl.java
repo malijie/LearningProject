@@ -46,13 +46,11 @@ public class ActionImpl implements AppAction{
                 new AsyncTask<Void, Void, ApiResponse<List<WelfareInfo>>>() {
                     @Override
                     protected ApiResponse<List<WelfareInfo>> doInBackground(Void... params) {
-                        Logger.mlj("begin Time:" + new Date().getTime());
                         return api.getWelfareInfo(requestParams);
                     }
                     @Override
                     protected void onPostExecute(ApiResponse<List<WelfareInfo>> listApiResponse) {
                         if (!listApiResponse.hasError()) {
-                            Logger.mlj("end Time:" + new Date().getTime());
                             callback.onSuccess(listApiResponse.getResults());
                         } else {
                             callback.onFailed("数据返回失败");

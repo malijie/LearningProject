@@ -38,7 +38,7 @@ public class BaiduMapController {
 
     public BaiduMapController(Activity activity){
         mActivity = activity;
-        mMapView =  activity.findViewById(R.id.bmapView);
+        mMapView =  activity.findViewById(R.id.id_map_mapview);
     }
 
     public void initLocation(){
