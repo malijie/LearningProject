@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <include
+        android:id="@+id/id_register_layout_title_bar"
+        layout="@layout/title_bar_layout"/>
+
+    <EditText
+        android:id="@+id/id_register_et_phone"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/id_register_layout_title_bar"
+        android:hint="请输入手机号"
+        android:layout_marginTop="20dp"
+        style="@style/register_et"/>
+
+    <EditText
+        android:id="@+id/id_register_et_code"
+        android:layout_width="160dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/id_register_et_phone"
+        android:hint="验证码"
+        android:gravity="center"
+        android:layout_marginTop="10dp"
+        style="@style/register_et"/>
+
+    <Button
+        android:id="@+id/id_register_button_send"
+        android:layout_width="160dp"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@id/id_register_et_code"
+        android:layout_below="@id/id_register_et_phone"
+        android:hint="验证码"
+        android:gravity="center"
+        android:layout_marginTop="5dp"/>
+
+    <EditText
+        android:id="@+id/id_register_et_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/id_register_button_send"
+        android:hint="用户昵称"
+        android:layout_marginTop="20dp"
+        style="@style/register_et"/>
+    <EditText
+        android:id="@+id/id_register_et_pwd"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/id_register_et_name"
+        android:hint="输入密码"
+        android:layout_marginTop="20dp"
+        style="@style/register_et"/>
+
+    <EditText
+        android:id="@+id/id_register_et_confirm"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/id_register_et_pwd"
+        android:hint="确认密码"
+        android:layout_marginTop="20dp"
+        style="@style/register_et"/>
+
+    <Button
+        android:id="@+id/id_register_button_register"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="15dp"
+        android:layout_below="@id/id_register_et_confirm"
+        android:hint="注册会员"
+        android:gravity="center"/>
+</RelativeLayout>

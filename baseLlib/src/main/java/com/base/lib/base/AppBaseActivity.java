@@ -15,6 +15,9 @@ import com.base.lib.utils.ToastManager;
 
 public abstract class AppBaseActivity extends BaseActivity {
     public static final String TITLE_ADD_DEVICE = "添加设备";
+    public static final String TITLE_REGISTER = "注册会员";
+    public static final String TITLE_FORGET_PWD = "忘记密码";
+
 
     private static final String TAG = AppBaseActivity.class.getSimpleName();
     public ProgressDialog mProgressDialog = null;

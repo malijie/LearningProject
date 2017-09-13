@@ -30,7 +30,7 @@
             android:name="com.baidu.lbsapi.API_KEY"
             android:value="iGDjzTXDiLjR3uzOdv44z9mytTpNRgR5" />
 
-        <activity android:name=".ui.activity.MainActivity" >
+        <activity android:name=".ui.activity.LoginActivity" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -38,9 +38,13 @@
             </intent-filter>
         </activity>
 
+        <activity android:name=".ui.activity.MainActivity"/>
+        <activity android:name=".ui.activity.ForgetPasswordActivity"/>
         <activity android:name=".ui.activity.TracingActivity"/>
         <activity android:name=".ui.activity.AddDeviceActivity"/>
         <activity android:name=".ui.activity.AddDeviceDetailActivity"/>
+        <activity android:name=".ui.activity.RegisterActivity"/>
+
         <service android:name="com.baidu.location.f"
             android:enabled="true"
             android:process=".remote">
