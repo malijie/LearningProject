@@ -1,6 +1,7 @@
 package com.chinamobile.xiaoyi.map;
 
 import android.app.Activity;
+import android.view.View;
 
 import com.baidu.location.BDLocation;
 import com.baidu.location.BDLocationListener;
@@ -36,9 +37,9 @@ public class BaiduMapController {
     private float mCurrentDirection = 0;
     private LocationClient mLocationClient;
 
-    public BaiduMapController(Activity activity){
+    public BaiduMapController(Activity activity,View v){
         mActivity = activity;
-        mMapView =  activity.findViewById(R.id.id_map_mapview);
+        mMapView =  v.findViewById(R.id.id_map_mapview);
     }
 
     public void initLocation(){

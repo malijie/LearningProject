@@ -39,7 +39,8 @@ public class DeviceMapFragment extends BaseFragment {
 
     @Override
     public void initViews(View v) {
-
+        mMapController = new BaiduMapController(mActivity,v);
+        mMapController.initLocation();
     }
 
     @Override
@@ -52,8 +53,7 @@ public class DeviceMapFragment extends BaseFragment {
 
     @Override
     public void initData() {
-        mMapController = new BaiduMapController(getActivity());
-        mMapController.initLocation();
+
 
     }
 

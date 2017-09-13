@@ -42,7 +42,7 @@ public class HomeActivity extends AppBaseActivity {
 
     @Override
     public void initData() {
-        mMapController = new BaiduMapController(this);
+        mMapController = new BaiduMapController(this,null);
         mMapController.initLocation();
     }
 
