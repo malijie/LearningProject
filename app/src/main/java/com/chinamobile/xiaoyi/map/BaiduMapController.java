@@ -9,12 +9,19 @@ import com.baidu.location.LocationClient;
 import com.baidu.location.LocationClientOption;
 import com.baidu.mapapi.map.BaiduMap;
 import com.baidu.mapapi.map.BitmapDescriptor;
+import com.baidu.mapapi.map.BitmapDescriptorFactory;
+import com.baidu.mapapi.map.InfoWindow;
 import com.baidu.mapapi.map.MapStatus;
 import com.baidu.mapapi.map.MapStatusUpdateFactory;
 import com.baidu.mapapi.map.MapView;
+import com.baidu.mapapi.map.Marker;
+import com.baidu.mapapi.map.MarkerOptions;
 import com.baidu.mapapi.map.MyLocationConfiguration;
 import com.baidu.mapapi.map.MyLocationData;
+import com.baidu.mapapi.map.OverlayOptions;
 import com.baidu.mapapi.model.LatLng;
+import com.base.lib.utils.ToastManager;
+import com.base.lib.utils.Util;
 import com.chinamobile.xiaoyi.R;
 
 /**
@@ -81,11 +88,11 @@ public class BaiduMapController {
     }
 
     private void centerToMyLocation(BDLocation location){
-        LatLng ll = new LatLng(location.getLatitude(),
-                location.getLongitude());
-        MapStatus.Builder builder = new MapStatus.Builder();
-        builder.target(ll).zoom(18.0f);
-        mBaiduMap.animateMapStatus(MapStatusUpdateFactory.newMapStatus(builder.build()));
+//        LatLng ll = new LatLng(location.getLatitude(),
+//                location.getLongitude());
+//        MapStatus.Builder builder = new MapStatus.Builder();
+//        builder.target(ll).zoom(18.0f);
+//        mBaiduMap.animateMapStatus(MapStatusUpdateFactory.newMapStatus(builder.build()));
     }
 
     public void start(){
@@ -111,5 +118,40 @@ public class BaiduMapController {
         mBaiduMap.setMyLocationEnabled(false);
         mLocationClient.stop();
     }
+
+    /**
+     * 根据经纬度定位位置
+     * @param latLng
+     */
+    public void location(LatLng latLng){
+        MapStatus.Builder builder = new MapStatus.Builder();
+        builder.target(latLng).zoom(18.0f);
+        mBaiduMap.animateMapStatus(MapStatusUpdateFactory.newMapStatus(builder.build()));
+    }
+
+    public void setMarker(final LatLng latLng){
+        //构建Marker图标
+        BitmapDescriptor bitmap = BitmapDescriptorFactory
+                .fromResource(R.mipmap.ic_launcher);
+        //构建MarkerOption，用于在地图上添加Marker
+        OverlayOptions option = new MarkerOptions()
+                .position(latLng)
+                .icon(bitmap);
+        //在地图上添加Marker，并显示
+        mBaiduMap.addOverlay(option);
+
+        mBaiduMap.setOnMarkerClickListener(new BaiduMap.OnMarkerClickListener() {
+            @Override
+            public boolean onMarkerClick(Marker marker) {
+                ToastManager.showShortMsg("click marker");
+                View v = Util.getView(R.layout.bottom_bar);
+                InfoWindow infoWindow = new InfoWindow(v,latLng,-1);
+                mBaiduMap.showInfoWindow(infoWindow);
+
+                return false;
+            }
+        });
+    }
+
 
 }

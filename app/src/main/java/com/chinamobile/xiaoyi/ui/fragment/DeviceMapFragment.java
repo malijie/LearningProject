@@ -1,13 +1,13 @@
 package com.chinamobile.xiaoyi.ui.fragment;
 
 import android.app.Activity;
-import android.app.Fragment;
 import android.app.FragmentManager;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.baidu.mapapi.model.LatLng;
 import com.chinamobile.xiaoyi.R;
 import com.chinamobile.xiaoyi.map.BaiduMapController;
 
@@ -41,6 +41,8 @@ public class DeviceMapFragment extends BaseFragment {
     public void initViews(View v) {
         mMapController = new BaiduMapController(mActivity,v);
         mMapController.initLocation();
+        mMapController.location(new LatLng(39.963175, 116.400244));
+        mMapController.setMarker(new LatLng(39.963175, 116.400244));
     }
 
     @Override
