@@ -44,7 +44,7 @@ public class AddDeviceDetailActivity extends AppBaseActivity{
         });
         mTextOption.setVisibility(View.VISIBLE);
         mTextTitle.setText(TITLE_ADD_DEVICE);
-        mTextOption.setText("完成");
+        mTextOption.setText("完成...");
     }
 
     @Override
