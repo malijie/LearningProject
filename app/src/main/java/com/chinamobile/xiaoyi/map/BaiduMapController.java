@@ -23,6 +23,7 @@ import com.baidu.mapapi.model.LatLng;
 import com.base.lib.utils.ToastManager;
 import com.base.lib.utils.Util;
 import com.chinamobile.xiaoyi.R;
+import com.chinamobile.xiaoyi.ui.wedgit.DeviceInfoWindow;
 
 /**
  * Created by malijie on 2017/9/7.
@@ -144,8 +145,8 @@ public class BaiduMapController {
             @Override
             public boolean onMarkerClick(Marker marker) {
                 ToastManager.showShortMsg("click marker");
-                View v = Util.getView(R.layout.bottom_bar);
-                InfoWindow infoWindow = new InfoWindow(v,latLng,-1);
+                View v = Util.getView(R.layout.info_window);
+                DeviceInfoWindow infoWindow = new DeviceInfoWindow(v,latLng,-80);
                 mBaiduMap.showInfoWindow(infoWindow);
 
                 return false;
