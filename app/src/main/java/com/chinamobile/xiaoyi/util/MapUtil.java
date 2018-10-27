@@ -5,9 +5,9 @@ import android.graphics.Point;
 import android.os.Bundle;
 import android.text.TextUtils;
 
-import com.baidu.location.BDLocation;
 import com.baidu.mapapi.map.BaiduMap;
 import com.baidu.mapapi.map.BitmapDescriptor;
+import com.baidu.mapapi.map.BitmapDescriptorFactory;
 import com.baidu.mapapi.map.MapStatus;
 import com.baidu.mapapi.map.MapStatusUpdate;
 import com.baidu.mapapi.map.MapStatusUpdateFactory;
@@ -19,13 +19,17 @@ import com.baidu.mapapi.map.OverlayOptions;
 import com.baidu.mapapi.map.PolylineOptions;
 import com.baidu.mapapi.model.LatLng;
 import com.baidu.mapapi.model.LatLngBounds;
+import com.baidu.mapapi.model.inner.GeoPoint;
 import com.baidu.mapapi.utils.CoordinateConverter;
+import com.baidu.mapapi.utils.DistanceUtil;
 import com.baidu.trace.model.CoordType;
 import com.baidu.trace.model.SortType;
 import com.baidu.trace.model.TraceLocation;
+import com.chinamobile.xiaoyi.R;
 import com.chinamobile.xiaoyi.XiaoYiHelpApplication;
-import com.chinamobile.xiaoyi.model.CurrentLocation;
+import com.chinamobile.xiaoyi.http.entity.CurrentLocation;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import static com.chinamobile.xiaoyi.util.BitmapUtil.bmArrowPoint;
@@ -58,14 +62,14 @@ public class MapUtil {
     private MapUtil() {
     }
 
-    public static MapUtil getInstance() {
-        return INSTANCE;
-    }
-
     public void init(MapView view) {
         mapView = view;
         baiduMap = mapView.getMap();
         mapView.showZoomControls(false);
+    }
+
+    public static MapUtil getInstance() {
+        return INSTANCE;
     }
 
     public void onPause() {
@@ -266,44 +270,54 @@ public class MapUtil {
         }
 
         if (points.size() == 1) {
-            OverlayOptions startOptions = new MarkerOptions().position(points.get(0)).icon(bmStart)
+            OverlayOptions startOptions = new MarkerOptions().position(points.get(0)).icon(bmEnd)
                     .zIndex(9).draggable(true);
             baiduMap.addOverlay(startOptions);
             animateMapStatus(points.get(0), 18.0f);
+
             return;
         }
 
-        LatLng startPoint;
-        LatLng endPoint;
-        if (sortType == SortType.asc) {
-            startPoint = points.get(0);
-            endPoint = points.get(points.size() - 1);
-        } else {
-            startPoint = points.get(points.size() - 1);
-            endPoint = points.get(0);
-        }
+//        LatLng startPoint;
+//        LatLng endPoint;
+//        if (sortType == SortType.asc) {
+//            startPoint = points.get(0);
+//            endPoint = points.get(points.size() - 1);
+//        } else {
+//            startPoint = points.get(points.size() - 1);
+//            endPoint = points.get(0);
+//        }
 
-        // 添加起点图标
-        OverlayOptions startOptions = new MarkerOptions()
-                .position(startPoint).icon(BitmapUtil.bmStart)
-                .zIndex(9).draggable(true);
-        // 添加终点图标
-        OverlayOptions endOptions = new MarkerOptions().position(endPoint)
-                .icon(bmEnd).zIndex(9).draggable(true);
+//        // 添加起点图标
+//        OverlayOptions startOptions = new MarkerOptions()
+//                .position(startPoint).icon(BitmapUtil.bmStart)
+//                .zIndex(9).draggable(true);
+//        // 添加终点图标
+//        OverlayOptions endOptions = new MarkerOptions().position(endPoint)
+//                .icon(bmEnd).zIndex(9).draggable(true);
+
+        List<BitmapDescriptor> bitmapDescriptors = new ArrayList<>();
+        List<Integer> indexs = new ArrayList<>();
+        for(int i=0;i<points.size();i++){
+            BitmapDescriptor bitmap = BitmapDescriptorFactory
+                    .fromResource(R.mipmap.arrow_forward);
+            indexs.add(i);
+            bitmapDescriptors.add(bitmap);
+        }
 
         // 添加路线（轨迹）
         OverlayOptions polylineOptions = new PolylineOptions().width(10)
-                .color(Color.BLUE).points(points);
+                .customTextureList(bitmapDescriptors).dottedLine(true).color(Color.RED).points(points).textureIndex(indexs);
 
-        baiduMap.addOverlay(startOptions);
-        baiduMap.addOverlay(endOptions);
+//        baiduMap.addOverlay(startOptions);
+//        baiduMap.addOverlay(endOptions);
         polylineOverlay = baiduMap.addOverlay(polylineOptions);
 
-        OverlayOptions markerOptions =
-                new MarkerOptions().flat(true).anchor(0.5f, 0.5f).icon(bmArrowPoint)
-                        .position(points.get(points.size() - 1))
-                        .rotate((float) CommonUtil.getAngle(points.get(0), points.get(1)));
-        mMoveMarker = (Marker) baiduMap.addOverlay(markerOptions);
+//        OverlayOptions markerOptions =
+//                new MarkerOptions().flat(true).anchor(0.5f, 0.5f).icon(bmArrowPoint)
+//                        .position(points.get(points.size() - 1))
+//                        .rotate((float) CommonUtil.getAngle(points.get(0), points.get(1)));
+//        mMoveMarker = (Marker) baiduMap.addOverlay(markerOptions);
 
         animateMapStatus(points);
     }
@@ -337,4 +351,21 @@ public class MapUtil {
         float mapZoom = baiduMap.getMapStatus().zoom - 1.0f;
         setMapStatus(mapCenter, mapZoom);
     }
+
+    private final static double x_pi = 3.14159265358979324 * 3000.0 / 180.0;
+    public static double[] bd2gcj(double lat, double lon) {
+        double x = lon - 0.0065, y = lat - 0.006;
+        double z = Math.sqrt(x * x + y * y) - 0.00002 * Math.sin(y * x_pi);
+        double theta = Math.atan2(y, x) - 0.000003 * Math.cos(x * x_pi);
+        double gg_lon = z * Math.cos(theta);
+        double gg_lat = z * Math.sin(theta);
+        return new double[] { gg_lat, gg_lon };
+    }
+
+    public static double getDistance(LatLng start,LatLng end){
+        double distance = DistanceUtil.getDistance(start, end);
+        return distance;
+    }
+
+
 }

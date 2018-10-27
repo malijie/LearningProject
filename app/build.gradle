@@ -12,14 +12,14 @@ android {
 
     signingConfigs {
         // your debug keystore
-        debug{
+        debug {
             storeFile file("debug.keystore")
         }
     }
 
     sourceSets {
-        main {
-            jniLibs.srcDir 'libs'
+        main() {
+            jniLibs.srcDirs = ['libs']
         }
 
         // Move the tests to tests/java, tests/res, etc...
@@ -37,9 +37,21 @@ android {
     defaultConfig {
         applicationId "com.chinamobile.xiaoyi"
         minSdkVersion 15
-        targetSdkVersion 22
-        versionCode 1
-        versionName "1.0"
+        targetSdkVersion 23
+        versionCode 21
+        versionName "1.2.5"
+
+        ndk {
+            //选择要添加的对应cpu类型的.so库。
+            abiFilters 'armeabi', 'armeabi-v7a', 'arm64-v8a', 'x86', 'x86_64', 'mips', 'mips64'
+            // 还可以添加 'x86', 'x86_64', 'mips', 'mips64'
+        }
+
+        manifestPlaceholders = [
+                JPUSH_PKGNAME: applicationId,
+                JPUSH_APPKEY : "b072377793196a0782e897a5", //JPush上注册的包名对应的appkey.
+                JPUSH_CHANNEL: "developer-default", //暂时填写默认值即可.
+        ]
     }
     lintOptions {
         abortOnError false
@@ -48,7 +60,30 @@ android {
 
 dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
-    compile 'com.android.support:appcompat-v7:22.2.1'
-    compile project(':baseLlib')
+    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
+        exclude group: 'com.android.support', module: 'support-annotations'
+    })
+    compile files('libs/BaiduLBS_Android.jar')
     compile files('libs/BaiduTraceSDK_v3_0_4.jar')
+    compile 'com.android.support:appcompat-v7:22.2.1'
+    compile 'com.android.support:support-v4:26.+'
+    compile 'com.android.support.constraint:constraint-layout:1.0.0-alpha7'
+    compile 'com.android.support:recyclerview-v7:26.0.0-alpha1'
+    compile 'com.google.code.gson:gson:2.3'
+    compile 'com.android.support:cardview-v7:26.0.0-alpha1'
+    compile 'cn.jiguang.sdk:jpush:3.0.9'
+    compile 'cn.jiguang.sdk:jcore:1.1.7'
+    compile 'com.baoyz.swipemenulistview:library:1.3.0'
+    compile 'com.daimajia.swipelayout:library:1.2.0@aar'
+    compile 'com.contrarywind:Android-PickerView:3.2.6'
+    compile 'com.pgyersdk:sdk:2.7.6'
+    compile 'cn.yipianfengye.android:zxing-library:2.2'
+    testCompile 'junit:junit:4.12'
+    compile 'com.squareup.picasso:picasso:2.5.2'
+    compile files('libs/alipaySdk-20170922.jar')
+    //leakCanary
+    debugCompile 'com.squareup.leakcanary:leakcanary-android:1.5'
+    releaseCompile 'com.squareup.leakcanary:leakcanary-android-no-op:1.5'
+    testCompile 'com.squareup.leakcanary:leakcanary-android-no-op:1.5'
+
 }

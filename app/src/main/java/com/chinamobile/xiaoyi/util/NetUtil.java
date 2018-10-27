@@ -29,4 +29,21 @@ public class NetUtil {
         }
         return false;
     }
+
+    /**
+     * 检查是否是wifi
+     * @param context
+     * @return
+     */
+    public static boolean isWifiConnected(Context context) {
+        if (context != null) {
+            ConnectivityManager mConnectivityManager = (ConnectivityManager) context
+                    .getSystemService(Context.CONNECTIVITY_SERVICE);
+            NetworkInfo networkInfo = mConnectivityManager.getActiveNetworkInfo();
+            if (networkInfo != null) {
+                return networkInfo.getType()==ConnectivityManager.TYPE_WIFI;
+            }
+        }
+        return false;
+    }
 }

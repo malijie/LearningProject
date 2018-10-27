@@ -2,19 +2,53 @@
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:orientation="vertical">
 
     <Button
-        android:id="@+id/id_get_picture"
+        android:id="@+id/id_get"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="获取福利"
+        android:text="get访问方式测试"
         />
     <Button
-        android:id="@+id/id_go_second"
+        android:id="@+id/id_post"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="去SecondActivity"
+        android:text="Post访问方式测试"
         />
+
+    <Button
+        android:id="@+id/show_date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="弹出日历对话框" />
+
+    <Button
+        android:id="@+id/id_pay"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="支付" />
+
+    <!--<DatePicker-->
+        <!--android:id="@+id/datePicker"-->
+        <!--style="@style/MyDatePickerDialogTheme"-->
+        <!--android:calendarViewShown="false"-->
+        <!--android:layout_centerInParent="true"-->
+        <!--android:datePickerMode="spinner"-->
+        <!--android:background="@color/white"-->
+        <!--android:headerBackground="@color/font_orange"-->
+        <!--android:calendarTextColor="@color/white"-->
+        <!--android:yearListSelectorColor="@color/white"-->
+        <!--android:yearListItemTextAppearance="@color/white"-->
+        <!--android:dayOfWeekTextAppearance="@color/white"-->
+        <!--android:headerDayOfMonthTextAppearance="@color/white"-->
+        <!--android:headerMonthTextAppearance="@color/white"-->
+        <!--android:headerYearTextAppearance="@color/white"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_gravity="center_horizontal" />-->
+
+
 
 </LinearLayout>

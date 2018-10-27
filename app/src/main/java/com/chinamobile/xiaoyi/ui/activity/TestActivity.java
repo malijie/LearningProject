@@ -3,73 +3,127 @@ package com.chinamobile.xiaoyi.ui.activity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.GridView;
+import android.widget.TextView;
 
-import com.base.lib.base.AppBaseActivity;
-import com.base.lib.entity.WelfareInfo;
-import com.base.lib.http.RequestParams;
-import com.base.lib.utils.Logger;
-import com.base.lib.utils.Util;
+import com.baidu.mapapi.search.geocode.GeoCodeResult;
+import com.baidu.mapapi.search.geocode.OnGetGeoCoderResultListener;
+import com.baidu.mapapi.search.geocode.ReverseGeoCodeResult;
 import com.chinamobile.xiaoyi.R;
+import com.chinamobile.xiaoyi.pay.AliPayment;
+import com.chinamobile.xiaoyi.pay.IPayCallback;
+import com.chinamobile.xiaoyi.pay.PayManager;
+import com.chinamobile.xiaoyi.ui.base.AppBaseActivity;
+import com.chinamobile.xiaoyi.ui.widget.DateDialog;
+import com.chinamobile.xiaoyi.util.ToastManager;
 
-import java.util.List;
 
-public class TestActivity extends AppBaseActivity {
+public class TestActivity extends AppBaseActivity implements OnGetGeoCoderResultListener {
     private static final String TAG = TestActivity.class.getSimpleName();
-    private Button mButton = null;
-    private Button mButtonSecond = null;
-    private GridView mGridView = null;
+
+    private Button mButtonGet = null;
+    private Button mButtonPost = null;
+    private Button mButtonDate = null;
+    private TextView mTextResult = null;
+    private Button mButtonPay = null;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        mButton = (Button) findViewById(R.id.id_get_picture);
-        mButtonSecond = (Button) findViewById(R.id.id_go_second);
-//        mGridView = (GridView) findViewById(R.id.id_gv);
-        mButton.setOnClickListener(onClickGetPicture);
-        mButtonSecond.setOnClickListener(new View.OnClickListener() {
+        mButtonGet = (Button) findViewById(R.id.id_get);
+        mButtonPost = (Button) findViewById(R.id.id_post);
+        mButtonDate = findViewById(R.id.show_date);
+        mButtonPay = findViewById(R.id.id_pay);
+        mButtonDate.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                final DateDialog dialog = new DateDialog(TestActivity.this);
+                dialog.setButtonClickListener(new DateDialog.DialogButtonListener() {
+                    @Override
+                    public void onConfirm(int year, int month, int day) {
+                        ToastManager.showShortMsg("year=" + year + ",month=" + month + ",day=" + day);
+                    }
+
+                    @Override
+                    public void onCancel() {
+                        dialog.dissmiss();
+                    }
+                });
+
+                dialog.show();
+            }
+        });
+
+        mButtonPay.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                startActivity(new Intent(TestActivity.this,SecondActivity.class));
+
             }
         });
 
     }
 
+
+
     @Override
     protected int getContentViewId() {
-        return 0;
+        return R.layout.activity_main;
     }
 
-    private View.OnClickListener onClickGetPicture = new View.OnClickListener() {
-        @Override
-        public void onClick(View v) {
-            mProgressDialog = Util.createProgressDialog(TestActivity.this,getResources().getString(R.string.loading_progress_tip));
-            mProgressDialog.show();
+//    private View.OnClickListener onClickGet = new View.OnClickListener() {
+//        @Override
+//        public void onClick(View v) {
+//            mProgressDialog = CommonUtil.createProgressDialog(TestActivity.this, getResources().getString(R.string.loading_progress_tip));
+//            mProgressDialog.show();
+//
+//            RequestParams params = new RequestParams();
+//            params.setParamsValue("groupId", "10");
+//            params.setParamsValue("itemId", "1");
+//
+//            action.testGetRequestInfo(params, new RequestCallback<List<WelfareInfo>>() {
+//                @Override
+//                public void onSuccess(List<WelfareInfo> data) {
+//                    mProgressDialog.dismiss();
+//                    mTextResult.setText("data=" + data);
+//
+//                }
+//
+//            });
+//        }
+//    };
+//
+//    private View.OnClickListener onClickPost = new View.OnClickListener() {
+//        @Override
+//        public void onClick(View v) {
+//
+//            mProgressDialog = CommonUtil.createProgressDialog(TestActivity.this, getResources().getString(R.string.loading_progress_tip));
+//            mProgressDialog.show();
+//
+//            RequestParams params = new RequestParams();
+//            params.setParamsValue("url", "http://blog.csdn.net/dog250/article/details/77993563");
+//            params.setParamsValue("desc", "testasdasdsadasd");
+//            params.setParamsValue("who", "1234");
+//            params.setParamsValue("type", "Android");
+//            params.setParamsValue("debug", "true");
+//
+//            action.testPostRequestInfo(params, new RequestCallback<String>() {
+//                @Override
+//                public void onSuccess(String msg) {
+//                    mProgressDialog.dismiss();
+//                    mTextResult.setText("data=" + msg);
+//                }
+//            });
+//
+//        }
+//    };
 
-            RequestParams params = new RequestParams();
-            params.setParamsValue("groupId","10");
-            params.setParamsValue("itemId","1");
-
-            action.listWelfareInfo(params, new RequestCallback<List<WelfareInfo>>() {
-                @Override
-                public void onSuccess(List<WelfareInfo> data) {
-                    mProgressDialog.dismiss();
-                    Logger.d("MLJ","data 1==" + data);
-                    Logger.d(TAG,"data 1==" + data);
-                }
-
-            });
-        }
-    };
-
-    @Override
-    protected void onStop() {
-        super.onStop();
-        Logger.d(TAG,"======onStop======");
-        mThreadPool.removeAllTask();
-        mThreadPool.waitTermination();
-    }
+//    @Override
+//    protected void onStop() {
+//        super.onStop();
+//        mThreadPool.removeAllTask();
+//        mThreadPool.waitTermination();
+//    }
 
     @Override
     public void initViews() {
@@ -78,6 +132,17 @@ public class TestActivity extends AppBaseActivity {
 
     @Override
     public void initData() {
+
+    }
+
+
+    @Override
+    public void onGetGeoCodeResult(GeoCodeResult geoCodeResult) {
+
+    }
+
+    @Override
+    public void onGetReverseGeoCodeResult(ReverseGeoCodeResult reverseGeoCodeResult) {
 
     }
 }

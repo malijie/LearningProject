@@ -51,4 +51,9 @@ public final class Constants {
      */
     public static final String LAST_LOCATION = "last_location";
 
+
+    public static final String MESSAGE_RECEIVER = "com.chinamobile.xiaoyi.messagereceiver";
+    public static final String LOGOUT_RECEIVER = "com.chinamobile.xiaoyi.logout";
+
+
 }

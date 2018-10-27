@@ -3,32 +3,119 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:background="@color/grey">
 
     <include layout="@layout/title_bar_layout"/>
-    <TextView
-        android:id="@+id/id_add_device_text_tip"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="@dimen/font_size_18"
-        android:text="请输入十六位的设备序列号"
+
+    <android.support.v7.widget.CardView
         android:layout_marginTop="20dp"
-        android:layout_gravity="center_horizontal"/>
-    <EditText
-        android:id="@+id/id_add_device_text_input"
+        android:layout_marginRight="20dp"
+        android:layout_marginLeft="20dp"
+        android:background="@drawable/bg_cardview"
         android:layout_width="match_parent"
-        android:layout_height="35dp"
-        android:hint="设备号"
-        android:digits="1234567890"
-        android:gravity="center"
-        android:maxLength="16"
-        android:background="@drawable/edit_bg"
-        android:layout_margin="20dp"/>
-    <TextView
-        android:id="@+id/id_add_device_text_bind"
+        android:layout_height="wrap_content">
+
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="@color/white">
+        <TextView
+            android:id="@+id/id_add_device_text_tip"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="请输入15位设备号"
+            android:padding="8dp"
+            android:gravity="center"
+            android:textSize="@dimen/font_size_20"
+            android:background="@color/title_bar_yellow"
+            android:textColor="@color/white"/>
+        <EditText
+            android:id="@+id/id_add_device_text_input"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="请输入设备号"
+            android:maxLength="15"
+            android:inputType="text"
+            style="@style/edit_round_input_style"
+            android:layout_margin="20dp"/>
+    </LinearLayout>
+
+    </android.support.v7.widget.CardView>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="24dp"
+        android:layout_marginLeft="40dp"
+        android:layout_marginRight="40dp"
+        android:gravity="center">
+        <View
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_weight="1"
+            android:background="@color/title_bar_yellow"/>
+        <TextView
+            android:id="@+id/id_add_device_text_bind"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/font_size_18"
+            android:text="其他绑定方式"
+            android:textColor="@color/title_bar_yellow"/>
+        <View
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_weight="1"
+            android:background="@color/title_bar_yellow"/>
+    </LinearLayout>
+    <ImageView
+        android:id="@+id/iv_bar_code"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="@dimen/font_size_16"
-        android:text="其他绑定方式"
-        android:layout_gravity="center_horizontal"/>
+        android:layout_gravity="center"
+        android:layout_marginTop="24dp"
+        android:src="@mipmap/barcode"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="10dp"
+        android:textSize="@dimen/font_size_18"
+        android:textColor="@color/font_grey"
+        android:text="二维码扫描"/>
+    <View
+        android:layout_weight="1"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"/>
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_marginBottom="32dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_height="wrap_content">
+    <TextView
+        android:paddingLeft="4dp"
+        android:paddingRight="4dp"
+        android:id="@+id/tv_rebind"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:textSize="@dimen/font_size_18"
+        android:autoLink="all"
+        android:text="重新绑定"
+        android:textColor="@color/title_bar_yellow" />
+
+    <View
+        android:layout_alignRight="@id/tv_rebind"
+        android:layout_alignLeft="@id/tv_rebind"
+        android:layout_below="@id/tv_rebind"
+        android:background="@color/title_bar_yellow"
+        android:layout_width="wrap_content"
+        android:layout_height="1dp"/>
+
+    </RelativeLayout>
+
 </LinearLayout>

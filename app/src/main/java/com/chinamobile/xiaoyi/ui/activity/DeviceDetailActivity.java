@@ -1,18 +1,11 @@
 package com.chinamobile.xiaoyi.ui.activity;
 
 import android.os.Bundle;
-import android.view.View;
 import android.widget.Button;
 import android.widget.GridView;
 
-import com.base.lib.base.AppBaseActivity;
-import com.base.lib.entity.WelfareInfo;
-import com.base.lib.http.RequestParams;
-import com.base.lib.utils.Logger;
-import com.base.lib.utils.Util;
 import com.chinamobile.xiaoyi.R;
-
-import java.util.List;
+import com.chinamobile.xiaoyi.ui.base.AppBaseActivity;
 
 public class DeviceDetailActivity extends AppBaseActivity {
     private static final String TAG = DeviceDetailActivity.class.getSimpleName();

@@ -5,13 +5,14 @@
     <color name="colorAccent">#FF4081</color>
     <color name="colorTransparent">#00000000</color>
 
-    <color name="white">#ffffffff</color>
+    <color name="white">#FFFFFF</color>
     <color name="black">#ff000000</color>
     <color name="blue">#0048b4</color>
     <color name="yellow">#aa8228</color>
     <color name="gray">#464646</color>
     <color name="red">#FF0000</color>
-    <color name="light_gray">#F8F8F8</color>
+    <color name="light_gray">#f2f0f0</color>
+    <color name="empty_background">#F2F2F2</color>
 
     <color name="system_bar_bg">#008EEF</color>
 
@@ -45,12 +46,32 @@
     <color name="tab_black">#003333</color>
     <color name="font_white">#FFFFFF</color>
     <color name="font_black">#333333</color>
-    <color name="font_green">#7afa53</color>
-    <color name="font_grey">#8f8f8f</color>
+    <color name="font_green">#30B53E</color>
+    <color name="font_grey">#5B5B5B</color>
+    <color name="offline_grey">#b9b9b9</color>
     <color name="font_hint_grey">#b4b4b4</color>
     <color name="button_select_grey">#4A4C5B</color>
     <color name="button_unselect_grey">#F3F4F9</color>
     <color name="grey_line">#a9a6a6</color>
+    <color name="grey_tip">#8E8E8E</color>
 
+    <color name="bg_light_orange">#ede9dd</color>
+    <color name="bg_start_orange">#fd9c2f</color>
+    <color name="bg_end_orange">#fbba59</color>
+    <color name="bg_circle_border_orange">#E98D11</color>
+    <color name="font_orange">#f29701</color>
+    <color name="font_hint_gray">#dddddd</color>
+    <color name="font_dark_gray">#858888</color>
+    <color name="font_dark_black">#ffffff</color>
+    <color name="font_light_orange">#ba7918</color>
+    <color name="font_light_grey">#B5B5B5</color>
+    <color name="bg_identify_grey">#b9b9b9</color>
+
+    <color name="bottom_font_grey">#5B5B5B</color>
+    <color name="title_bar_yellow">#FEAC40</color>
+    <color name="title_bar_font_yellow">#FEAC40</color>
+    <color name="list_background_grey">#F2F2F2</color>
+    <color name="accuracyCircleFillColor">#F1E3C9</color>
+    <color name="accuracyCircleStrokeColor">#F1E3C9</color>
 
 </resources>

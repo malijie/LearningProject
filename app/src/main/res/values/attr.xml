@@ -11,4 +11,16 @@
         <attr name="border_color" format="color" />
     </declare-styleable>
 
+    <declare-styleable name="MineItemView">
+        <!--<attr name="item_mine_icon" format="reference" />-->
+        <attr name="item_mine_text" format="string" />
+    </declare-styleable>
+
+    <declare-styleable name="SettingItemView">
+        <attr name="item_setting_text" format="string"/>
+        <attr name="item_status_opened" format="boolean"/>
+    </declare-styleable>
+
+
+
 </resources>

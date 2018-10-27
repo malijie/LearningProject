@@ -1,213 +1,206 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:background="@color/yellow"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="@mipmap/info_window_bg"
+    android:layout_marginLeft="-10dp"
     android:orientation="vertical">
-    
     <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="20dp"
-        android:background="@color/app_red"
-        >
-        <TextView
-            android:id="@+id/id_info_window_device_name"
+        android:layout_width="260dp"
+        android:layout_height="wrap_content">
+        <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="设备名称"
-            android:textColor="@color/white"
-            android:layout_centerVertical="true"
-            android:layout_marginLeft="10dp"
-            />
-        <ImageView
-            android:id="@+id/id_info_window_image_battery"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@mipmap/add"
-            android:layout_alignParentRight="true"
-            android:layout_marginRight="10dp"/>
-        <TextView
-            android:id="@+id/id_info_window_text_battery"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@mipmap/add"
-            android:layout_toLeftOf="@id/id_info_window_image_battery"
-            android:text="52%"
-            android:layout_centerVertical="true"
-            android:textColor="@color/white"
-            android:layout_marginRight="10dp"/>
+            android:background="@color/title_bar_yellow">
+            <TextView
+                android:id="@+id/id_info_window_text_user"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="张三"
+                android:layout_marginLeft="10dp"
+                android:textSize="@dimen/font_size_14"
+                android:textColor="@color/white"
+                android:layout_centerVertical="true"/>
+            <ImageView
+                android:id="@+id/id_info_window_image_battery"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="10dp"
+                android:src="@mipmap/battery_full"
+                android:layout_centerVertical="true"/>
+            <TextView
+                android:id="@+id/id_info_window_text_battery"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="5dp"
+                android:textColor="@color/white"
+                android:textSize="@dimen/font_size_12"
+                android:layout_toLeftOf="@id/id_info_window_image_battery"
+                android:text="100%"
+                android:layout_centerVertical="true"/>
+        </RelativeLayout>
     </RelativeLayout>
+
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="10dp"
+        android:layout_height="100dp"
+        android:layout_marginLeft="5dp"
         android:orientation="vertical">
-        <LinearLayout
+        <TextView
+            android:id="@+id/id_info_window_text_address"
+            style="@style/text_info_window"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:src="@mipmap/add"
+            android:maxLines="1"
+            android:ellipsize="end"
+            tools:text="四川省成都市软件园" />
+        <TextView
+            android:id="@+id/id_info_window_text_time"
+            style="@style/text_info_window"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:src="@mipmap/add"
+            tools:text="上报时间：2017-09-20 06:06:30" />
+
+        <TextView
+            android:id="@+id/id_info_window_text_location_style"
+            style="@style/text_info_window"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            tools:text="定位方式：基站定位" />
+
+
+        <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="25dp"
-            android:orientation="horizontal">
-            <ImageView
-                android:id="@+id/id_info_window_image_time"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@mipmap/add"
-                android:layout_gravity="center_vertical"/>
-            <TextView
-                android:id="@+id/id_info_window_text_time"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                style="@style/text_info_window"
-                android:text="2017-09-04 06:55:55"
-                android:src="@mipmap/add"/>
-        </LinearLayout>
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="25dp"
+            android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:layout_marginTop="5dp">
-            <ImageView
-                android:id="@+id/id_info_window_image_address"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@mipmap/add"
-                android:layout_gravity="center_vertical"/>
             <TextView
-                android:id="@+id/id_info_window_text_address"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:id="@+id/id_info_window_text_mode_tip"
                 style="@style/text_info_window"
-                android:text="四川省成都市软件园"
-                android:src="@mipmap/add"/>
-        </LinearLayout>
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="25dp"
-            android:orientation="horizontal"
-            android:layout_marginTop="5dp">
-            <ImageView
-                android:id="@+id/id_info_window_image_location_style"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@mipmap/add"
-                android:layout_gravity="center_vertical"/>
-            <TextView
-                android:id="@+id/id_info_window_text_location_style"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                style="@style/text_info_window"
-                android:text="基站定位"
-                android:src="@mipmap/add"/>
-        </LinearLayout>
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="25dp"
-            android:orientation="horizontal"
-            android:layout_marginTop="5dp">
-            <ImageView
-                android:id="@+id/id_info_window_image_location_accuracy"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@mipmap/add"
-                android:layout_gravity="center_vertical"/>
-            <TextView
-                android:id="@+id/id_info_window_text_accuracy"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                style="@style/text_info_window"
-                android:text="定位精度：100米"
-                android:src="@mipmap/add"/>
-        </LinearLayout>
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="25dp"
-            android:orientation="horizontal"
-            android:layout_marginTop="5dp">
-            <ImageView
-                android:id="@+id/id_info_window_image_device_mode"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@mipmap/add"
-                android:layout_gravity="center_vertical"/>
+                android:text="工作模式：" />
             <TextView
                 android:id="@+id/id_info_window_text_mode"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                style="@style/text_info_window"
-                android:text="设备模式：常规模式"
-                android:src="@mipmap/add"/>
-        </LinearLayout>
-    </LinearLayout>
+                android:textSize="@dimen/font_size_14"
+                android:textColor="@color/font_grey"
+                tools:text="常规模式"
+                android:layout_toRightOf="@id/id_info_window_text_mode_tip"/>
+            <TextView
+                android:id="@+id/id_info_window_text_status"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="10dp"
+                tools:text="在线" />
+        </RelativeLayout>
 
+    </LinearLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginTop="5dp"
+        android:background="@color/title_bar_yellow"/>
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_marginTop="10dp">
+        android:layout_height="40dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="25dp"
+        android:orientation="horizontal">
+
         <LinearLayout
-            android:id="@+id/id_info_window_layout_fence"
+            android:id="@+id/id_info_window_layout_mode"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:orientation="vertical"
-            android:gravity="center">
+            android:gravity="center"
+            android:orientation="vertical">
+
             <ImageView
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:src="@mipmap/add"/>
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@mipmap/device_item_mode" />
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="围栏"/>
+                android:text="模式"
+                android:textColor="@color/font_grey"
+                android:textSize="@dimen/font_size_14" />
         </LinearLayout>
+
         <LinearLayout
             android:id="@+id/id_info_window_layout_trail"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:orientation="vertical"
-            android:gravity="center">
+            android:gravity="center"
+            android:orientation="vertical">
+
             <ImageView
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:src="@mipmap/add"/>
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@mipmap/device_item_history" />
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="轨迹"/>
+                android:text="轨迹"
+                android:textColor="@color/font_grey"
+                android:textSize="@dimen/font_size_14" />
         </LinearLayout>
+
         <LinearLayout
             android:id="@+id/id_info_window_layout_navigate"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:orientation="vertical"
-            android:gravity="center">
+            android:gravity="center"
+            android:orientation="vertical">
+
             <ImageView
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:src="@mipmap/add"/>
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@mipmap/infi_window_navigate" />
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="导航"/>
+                android:text="导航"
+                android:textColor="@color/font_grey"
+                android:textSize="@dimen/font_size_14" />
         </LinearLayout>
+
         <LinearLayout
             android:id="@+id/id_info_window_layout_detail"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:orientation="vertical"
-            android:gravity="center">
+            android:gravity="center"
+            android:orientation="vertical">
+
             <ImageView
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:src="@mipmap/add"/>
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@mipmap/infi_window_detail" />
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="详情"/>
+                android:text="详情"
+                android:textColor="@color/font_grey"
+                android:textSize="@dimen/font_size_14" />
         </LinearLayout>
     </LinearLayout>
+
 
 </LinearLayout>

@@ -51,7 +51,7 @@
         android:layout_below="@id/id_device_detail_text_note_title"
         android:textColor="@color/app_red"
         android:textSize="@dimen/font_size_14"
-        android:text="注：常规模式为每30分钟发送一次消息，紧急模式为每2分钟发送一次消息"/>
+        android:text="注：常规模式为每30分钟发送一次消息，寻人模式为每2分钟发送一次消息"/>
     </RelativeLayout>
 
     <LinearLayout

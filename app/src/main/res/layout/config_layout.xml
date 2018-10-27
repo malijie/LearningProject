@@ -16,7 +16,7 @@
         android:layout_below="@id/id_config_layout_top"
         android:layout_marginTop="10dp"
         android:orientation="horizontal">
-        <com.chinamobile.xiaoyi.ui.wedgit.CircleImageView
+        <com.chinamobile.xiaoyi.ui.widget.CircleImageView
             android:id="@+id/id_config_image_user"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -211,6 +211,7 @@
     </RelativeLayout>
 
     <Button
+        android:id="@+id/id_config_button_logout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="注销"

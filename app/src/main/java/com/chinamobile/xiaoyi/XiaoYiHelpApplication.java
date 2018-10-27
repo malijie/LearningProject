@@ -1,33 +1,24 @@
 package com.chinamobile.xiaoyi;
 
-import android.annotation.TargetApi;
 import android.app.Application;
 import android.app.Notification;
-import android.app.PendingIntent;
 import android.content.Context;
-import android.content.Intent;
 import android.content.SharedPreferences;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 
 import com.baidu.mapapi.SDKInitializer;
 import com.baidu.trace.LBSTraceClient;
 import com.baidu.trace.Trace;
 import com.baidu.trace.api.entity.LocRequest;
-import com.baidu.trace.api.entity.OnEntityListener;
-import com.baidu.trace.api.track.LatestPointRequest;
-import com.baidu.trace.api.track.OnTrackListener;
 import com.baidu.trace.model.OnCustomAttributeListener;
-import com.baidu.trace.model.ProcessOption;
-import com.base.lib.control.CommonLibManager;
-import com.chinamobile.xiaoyi.ui.activity.TracingActivity;
+import com.chinamobile.xiaoyi.http.http.URLContainer;
 import com.chinamobile.xiaoyi.util.BitmapUtil;
 import com.chinamobile.xiaoyi.util.CommonUtil;
-import com.chinamobile.xiaoyi.util.NetUtil;
+import com.uuzuche.lib_zxing.activity.ZXingLibrary;
 
 import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.atomic.AtomicInteger;
+
 
 /**
  * Created by malijie on 2017/9/7.
@@ -35,6 +26,7 @@ import java.util.concurrent.atomic.AtomicInteger;
 
 public class XiaoYiHelpApplication  extends Application {
     public static Context mContext = null;
+
 
     private AtomicInteger mSequenceGenerator = new AtomicInteger();
 
@@ -82,6 +74,11 @@ public class XiaoYiHelpApplication  extends Application {
 
     public static int screenHeight = 0;
 
+//    private RefWatcher refWatcher;
+
+    private static boolean debug = true;
+
+
     @Override
     protected void attachBaseContext(Context base) {
         super.attachBaseContext(base);
@@ -91,9 +88,19 @@ public class XiaoYiHelpApplication  extends Application {
     public void onCreate() {
         super.onCreate();
         mContext = getApplicationContext();
-        CommonLibManager.init(getApplicationContext());
-        SDKInitializer.initialize(XiaoYiHelpApplication.mContext);
+        SDKInitializer.initialize(mContext);
         BitmapUtil.init();
+        setDebugMode(true);
+//        if (LeakCanary.isInAnalyzerProcess(this)) {
+//            // This process is dedicated to LeakCanary for heap analysis.
+//            // You should not init your app in this process.
+//            return;
+//        }
+//        refWatcher = LeakCanary.install(this);
+
+
+        //二维码初始化
+        ZXingLibrary.initDisplayOpinion(this);
 
         entityName = CommonUtil.getImei(this);
 
@@ -102,8 +109,6 @@ public class XiaoYiHelpApplication  extends Application {
             return;
         }
 
-//        initView();
-        initNotification();
         mClient = new LBSTraceClient(mContext);
         mTrace = new Trace(serviceId, entityName);
         mTrace.setNotification(notification);
@@ -124,56 +129,6 @@ public class XiaoYiHelpApplication  extends Application {
         clearTraceStatus();
     }
 
-    @TargetApi(16)
-    private void initNotification() {
-        Notification.Builder builder = new Notification.Builder(this);
-        Intent notificationIntent = new Intent(this, TracingActivity.class);
-
-        Bitmap icon = BitmapFactory.decodeResource(this.getResources(),
-                R.mipmap.icon_tracing);
-
-        // 设置PendingIntent
-        builder.setContentIntent(PendingIntent.getActivity(this, 0, notificationIntent, 0))
-                .setLargeIcon(icon)  // 设置下拉列表中的图标(大图标)
-                .setContentTitle("百度鹰眼") // 设置下拉列表里的标题
-                .setSmallIcon(R.mipmap.icon_tracing) // 设置状态栏内的小图标
-                .setContentText("服务正在运行...") // 设置上下文内容
-                .setWhen(System.currentTimeMillis()); // 设置该通知发生的时间
-
-        notification = builder.build(); // 获取构建好的Notification
-        notification.defaults = Notification.DEFAULT_SOUND; //设置为默认的声音
-    }
-
-    /**
-     * 获取当前位置
-     */
-    public void getCurrentLocation(OnEntityListener entityListener, OnTrackListener trackListener) {
-        // 网络连接正常，开启服务及采集，则查询纠偏后实时位置；否则进行实时定位
-        if (NetUtil.isNetworkAvailable(mContext)
-                && trackConf.contains("is_trace_started")
-                && trackConf.contains("is_gather_started")
-                && trackConf.getBoolean("is_trace_started", false)
-                && trackConf.getBoolean("is_gather_started", false)) {
-            LatestPointRequest request = new LatestPointRequest(getTag(), serviceId, entityName);
-            ProcessOption processOption = new ProcessOption();
-            processOption.setNeedDenoise(true);
-            processOption.setRadiusThreshold(100);
-            request.setProcessOption(processOption);
-            mClient.queryLatestPoint(request, trackListener);
-        } else {
-            mClient.queryRealTimeLoc(locRequest, entityListener);
-        }
-    }
-
-    /**
-     * 获取请求标识
-     *
-     * @return
-     */
-    public int getTag() {
-        return mSequenceGenerator.incrementAndGet();
-    }
-
     /**
      * 清除Trace状态：初始化app时，判断上次是正常停止服务还是强制杀死进程，根据trackConf中是否有is_trace_started字段进行判断。
      * <p>
@@ -187,4 +142,22 @@ public class XiaoYiHelpApplication  extends Application {
             editor.apply();
         }
     }
+
+    /**
+     * 设置正式线、测试线开关
+     * @param isDebug
+     */
+    private void setDebugMode(boolean isDebug){
+        debug = isDebug;
+        URLContainer.setBaseURL(isDebug);
+    }
+
+    /**
+     * 生产线，测试线切换
+     * @return
+     */
+    public static boolean getDebugMode(){
+        return debug;
+    }
+
 }

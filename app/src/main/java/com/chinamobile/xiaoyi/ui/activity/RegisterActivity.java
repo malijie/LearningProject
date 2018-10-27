@@ -6,14 +6,14 @@ import android.view.View;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
-import com.base.lib.base.AppBaseActivity;
 import com.chinamobile.xiaoyi.R;
+import com.chinamobile.xiaoyi.ui.base.AppBaseActivity;
 
 /**
  * Created by malijie on 2017/9/13.
  */
 
-public class RegisterActivity extends AppBaseActivity{
+public class RegisterActivity extends AppBaseActivity {
     private TextView mTextTitle = null;
     private ImageButton mButtonBack = null;
 
