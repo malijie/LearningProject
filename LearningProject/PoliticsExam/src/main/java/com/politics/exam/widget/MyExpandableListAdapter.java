@@ -7,12 +7,10 @@ import android.database.DataSetObserver;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseExpandableListAdapter;
-import android.widget.ExpandableListAdapter;
 import android.widget.ExpandableListView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-import com.politics.exam.PoliticsApplication;
 import com.politics.exam.R;
 import com.politics.exam.activity.QuestionDetailActivity;
 import com.politics.exam.data.Profile;
@@ -24,8 +22,6 @@ import com.politics.exam.db.operator.ChapterSZDBOperator;
 import com.politics.exam.db.operator.IDBOperator;
 import com.politics.exam.entity.QuestionInfo;
 import com.politics.exam.fragment.QuestionsFragment;
-import com.politics.exam.util.IntentManager;
-import com.politics.exam.util.Logger;
 import com.politics.exam.util.SharedPreferenceUtil;
 import com.politics.exam.util.ToastManager;
 import com.politics.exam.util.Utils;
@@ -34,9 +30,6 @@ import com.politics.exam.wap.PermissionController;
 import com.politics.exam.wap.VipPayAction;
 
 import java.util.List;
-
-import static com.politics.exam.data.Profile.MY_01;
-import static com.politics.exam.data.Profile.MY_02;
 
 /**
  * Created by malijie on 2017/5/26.
@@ -149,7 +142,7 @@ public class MyExpandableListAdapter extends BaseExpandableListAdapter {
         layout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(childPosition != 0 && !SharedPreferenceUtil.loadPayedVIPStatus()){
+                if(childPosition != 0 && !SharedPreferenceUtil.loadPayedQuestionStatus()){
                     showPayTip();
                     return;
                 }
@@ -175,7 +168,7 @@ public class MyExpandableListAdapter extends BaseExpandableListAdapter {
             @Override
             public void onConfirm() {
                 if(PermissionController.checkPermission(getActivity())){
-                    new VipPayAction(getActivity()).pay();
+                    new VipPayAction(getActivity()).payQuestion();
                     dialog.dissmiss();
                 }else{
                     ToastManager.showLongMsg("未打开权限，请到设置-应用中打开相关权限后完成支付");

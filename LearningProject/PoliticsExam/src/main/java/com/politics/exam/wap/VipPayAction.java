@@ -14,19 +14,32 @@ import com.wanpu.pay.PayResultListener;
 
 public class VipPayAction extends PayBaseAction{
     private Activity mActivity;
+
+
     public VipPayAction(Activity activity){
         super(activity);
         mActivity = activity;
     }
 
-    public void pay() {
+    public void payVideo(){
+        String userId = mPayConnect.getDeviceId(mActivity);
+        String orderId = String.valueOf(System.currentTimeMillis());
+        mPayConnect.pay(mActivity, orderId, userId, PRICE_VIDEO,
+                GOODS_NAME_VIDEO, GOODS_DESCR_VIDEO, "",new MyPayResultListener(PayInfo.GOODS_VIDEO));
+    }
+
+    public void payQuestion() {
         String userId = mPayConnect.getDeviceId(mActivity);
         String orderId = String.valueOf(System.currentTimeMillis());
         mPayConnect.pay(mActivity, orderId, userId, PRICE_VIP,
-                GOODS_NAME_VIP, GOODS_DESCR_VIP, "",new MyPayResultListener());
+                GOODS_NAME_VIP, GOODS_DESCR_VIP, "",new MyPayResultListener(PayInfo.GOODS_QUESTION));
     }
 
     private class MyPayResultListener implements PayResultListener {
+        private int payGoods = 1;
+        MyPayResultListener(int payGoods){
+            this.payGoods = payGoods;
+        }
 
         @Override
         public void onPayFinish(Context payViewContext, String orderId,
@@ -42,7 +55,11 @@ public class VipPayAction extends PayBaseAction{
 
                 // 未指定notifyUrl的情况下，交易成功后，必须发送回执
                 PayConnect.getInstance(mActivity).confirm(orderId,payType);
-                SharedPreferenceUtil.savePayedVIPStatus(true);
+                if(payGoods == PayInfo.GOODS_QUESTION){
+                    SharedPreferenceUtil.savePayedQuestionStatus(true);
+                }else if(payGoods == PayInfo.GOODS_VIDEO){
+                    SharedPreferenceUtil.savePayedVideoStatus(true);
+                }
             } else {
                 ToastManager.showShortMsg("购买失败");
             }

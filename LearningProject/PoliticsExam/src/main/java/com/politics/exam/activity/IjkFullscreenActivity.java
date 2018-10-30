@@ -13,7 +13,7 @@ import com.politics.exam.util.SharedPreferenceUtil;
 
 public class IjkFullscreenActivity extends AppCompatActivity {
 
-    private static final String IMAGE_URL = "http://vimg3.ws.126.net/image/snapshot/2016/11/C/T/VC628QHCT.jpg";
+    private static final String IMAGE_URL = "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1540927613660&di=8537e6a8b088fe1389d781fcb1dd06b3&imgtype=0&src=http%3A%2F%2Fp.ssl.qhimg.com%2Ft018aab68a8489b3308.jpg";
     IjkPlayerView mPlayerView;
 
     @Override

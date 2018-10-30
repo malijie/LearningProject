@@ -10,6 +10,8 @@ public class SharedPreferenceUtil {
 	private static final String SP_QUESTION_INIT = "init";
 	private static final String SP_PAY_INFO = "pay_info";
 	private static final String PAYED_VIP_KEY = "payed_vip";
+	private static final String PAYED_VIDEO_KEY = "payed_video";
+
 	private static final String VIDEO_INFO = "VIDEO_INFO";
 	private static final String KEY_PLAY_PROCESS = "KEY_PLAY_PROCESS";
 
@@ -42,14 +44,24 @@ public class SharedPreferenceUtil {
 				.getBoolean(SP_QUESTION_INIT,true);
 	}
 
-	public static void savePayedVIPStatus(boolean isPayed){
+	public static void savePayedQuestionStatus(boolean isPayed){
 		PoliticsApplication.sContext.getSharedPreferences(SP_PAY_INFO, Context.MODE_PRIVATE).edit()
 				.putBoolean(PAYED_VIP_KEY,isPayed).commit();
 	}
 
-	public static boolean loadPayedVIPStatus(){
+	public static boolean loadPayedQuestionStatus(){
 		return PoliticsApplication.sContext.getSharedPreferences(SP_PAY_INFO, Context.MODE_PRIVATE)
 				.getBoolean(PAYED_VIP_KEY,false);
+	}
+
+	public static void savePayedVideoStatus(boolean isPayed){
+		PoliticsApplication.sContext.getSharedPreferences(SP_PAY_INFO, Context.MODE_PRIVATE).edit()
+				.putBoolean(PAYED_VIDEO_KEY,isPayed).commit();
+	}
+
+	public static boolean loadPayedVideoStatus(){
+		return PoliticsApplication.sContext.getSharedPreferences(SP_PAY_INFO, Context.MODE_PRIVATE)
+				.getBoolean(PAYED_VIDEO_KEY,false);
 	}
 
 	public static void saveStringVideoInfo(String key,String value){

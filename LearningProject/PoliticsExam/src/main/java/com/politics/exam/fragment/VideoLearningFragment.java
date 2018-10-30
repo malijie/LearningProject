@@ -21,7 +21,13 @@ import com.politics.exam.activity.IjkFullscreenActivity;
 import com.politics.exam.data.Profile;
 import com.politics.exam.entity.VideoInfo;
 import com.politics.exam.manager.VideoManager;
+import com.politics.exam.util.SharedPreferenceUtil;
+import com.politics.exam.util.ToastManager;
 import com.politics.exam.util.Utils;
+import com.politics.exam.wap.PayBaseAction;
+import com.politics.exam.wap.PermissionController;
+import com.politics.exam.wap.VipPayAction;
+import com.politics.exam.widget.CustomDialog;
 
 /**
  * Created by malijie on 2018/10/25.
@@ -143,17 +149,27 @@ public class VideoLearningFragment extends Fragment{
                 mTextLength.setText(VIDEO_LENGTH[groupPosition][childPosition]);
 
                 RelativeLayout itemLayout = (RelativeLayout) mItemView.findViewById(R.id.id_video_expand_item_layout);
-                itemLayout.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        VideoInfo videoInfo = new VideoInfo();
-                        videoInfo.setName(VIDEO_ITEM[groupPosition][childPosition]);
-                        videoInfo.setUrl(VIDEO_URL[groupPosition][childPosition]);
 
-                        VideoManager.saveCurrentInfo(videoInfo);
-                        startVideoPlayActivity(videoInfo);
-                    }
-                });
+                if(groupPosition <VIDEO_GROUP.length -1){
+                    itemLayout.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+
+                            if(childPosition != 0 && !SharedPreferenceUtil.loadPayedVideoStatus()){
+                                showPayTip();
+                                return;
+                            }
+
+                            VideoInfo videoInfo = new VideoInfo();
+                            videoInfo.setName(VIDEO_ITEM[groupPosition][childPosition]);
+                            videoInfo.setUrl(VIDEO_URL[groupPosition][childPosition]);
+
+                            VideoManager.saveCurrentInfo(videoInfo);
+                            startVideoPlayActivity(videoInfo);
+                        }
+                    });
+                }
+
                 return mItemView;
             }
 
@@ -175,6 +191,29 @@ public class VideoLearningFragment extends Fragment{
         };
 
         eLv.setAdapter(eAdapter);
+    }
+
+    private void showPayTip() {
+        final CustomDialog dialog = new CustomDialog(getActivity(), PayBaseAction.GOODS_NAME_VIDEO,PayBaseAction.GOODS_DESCR_VIDEO);
+        dialog.setButtonClickListener(new CustomDialog.DialogButtonListener() {
+            @Override
+            public void onConfirm() {
+                if(PermissionController.checkPermission(getActivity())){
+                    new VipPayAction(getActivity()).payVideo();
+                    dialog.dissmiss();
+                }else{
+                    ToastManager.showLongMsg("未打开权限，请到设置-应用中打开相关权限后完成支付");
+                    dialog.dissmiss();
+                }
+
+            }
+
+            @Override
+            public void onCancel() {
+                dialog.dissmiss();
+            }
+        });
+        dialog.show();
     }
 
     private void initData(){
