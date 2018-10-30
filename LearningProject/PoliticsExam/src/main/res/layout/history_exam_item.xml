@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="100dp">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="10dp">
+        <ImageView
+            android:id="@+id/id_exam_item_image_icon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:src="@mipmap/edit_search"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:layout_marginLeft="10dp"
+            android:textSize="@dimen/font_size_18"
+            android:layout_toRightOf="@id/id_exam_item_image_icon"
+            android:text="2017年考研政治真题"/>
+        <TextView
+            android:id="@+id/id_exam_item_text_tip"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:layout_marginLeft="10dp"
+            android:maxLines="2"
+            android:ellipsize="end"
+            android:textSize="@dimen/font_size_16"
+            android:layout_below="@id/id_exam_item_image_icon"
+            android:text="内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容"/>
+
+    </RelativeLayout>
+
+</RelativeLayout>

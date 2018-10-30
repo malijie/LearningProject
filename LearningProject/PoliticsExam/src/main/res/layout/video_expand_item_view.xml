@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical">
+    <RelativeLayout
+        android:id="@+id/id_video_expand_item_layout"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:orientation="vertical">
+            <TextView
+                android:id="@+id/id_video_expand_item_text_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:text="第一章 马克思主义是关于误差阶级"
+                android:textSize="@dimen/font_size_14"
+                style="@style/VideoExpandListItemTextStyle"/>
+        <TextView
+            android:id="@+id/id_video_expand_item_text_length"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="22分43秒"
+            android:layout_alignParentRight="true"
+            android:textSize="@dimen/font_size_14"
+            android:layout_marginRight="10dp"
+            style="@style/VideoExpandListItemTextStyle"/>
+
+    </RelativeLayout>
+</RelativeLayout>

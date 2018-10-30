@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+    <color name="grey">#ededed</color>
+    <color name="app_red">#E85353</color>
+    <color name="app_grey">#787878</color>
+    <color name="dialog_grey">#dad8d8</color>
+    <color name="background_white">#FFFFFF</color>
+    <color name="little_grey">#eae9e9</color>
+    <color name="font_black">#000000</color>
+    <color name="font_grey">#797979</color>
+    <color name="font_yellow">#DDA30D</color>
+    <color name="background_yellow">#fae7b4</color>
+    <color name="font_green">#41AD49</color>
+    <color name="font_red">#FF2948</color>
+    <color name="transparent">#FFFFFF</color>
+    <color name="question_explain_background">#FEF3CF</color>
+    <color name="payeco_textColorGrayTwo">#A2A2A2</color>
+    <color name="payeco_textColorWhite">#FFFFFF</color>
+    <color name="payeco_textColorBlack">#2B2B2B</color>
+    <color name="payeco_textColorYellow">#FF8C00</color>
+    <color name="payeco_textColorBlue">#6CA6CD</color>
+    <color name="payeco_titleTextColor">#1780C7</color>
+    <color name="payeco_tipsTextColor">#4A5761</color>
+    <color name="payeco_hintTextColor">#C4C4C4</color>
+    <color name="payeco_bgColor">#E8E8E8</color>
+
+</resources>

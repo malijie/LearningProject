@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:layout_marginTop="10dp">
+        <TextView
+            android:id="@+id/id_video_text_start_learn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="当前还有学习的课程"
+            android:textSize="14dp"
+            android:textColor="@color/font_black"
+            android:layout_marginLeft="9dp"
+            android:layout_centerVertical="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_marginStart="9dp" />
+        <Button
+            android:id="@+id/id_video_btn_start_learn"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:text="开始学习"
+            android:textSize="14sp"
+            android:layout_centerVertical="true"
+            android:textColor="@color/font_black"
+            android:background="@drawable/rounded_button_selector"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="10dp"/>
+    </RelativeLayout>
+
+
+    <ExpandableListView
+        android:id="@+id/id_video_learning_lv"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/background_white"/>
+
+</LinearLayout>

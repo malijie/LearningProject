@@ -1,0 +1,22 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/grey">
+
+    <include
+        android:id="@+id/id_home_layout_title"
+        layout="@layout/title_bar"/>
+
+    <FrameLayout
+        android:id="@+id/content"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="60dp"
+        android:layout_marginBottom="60dp">
+    </FrameLayout>
+
+    <include
+        android:id="@+id/id_home_layout_bottom"
+        layout="@layout/bottom_layout"/>
+
+</FrameLayout>

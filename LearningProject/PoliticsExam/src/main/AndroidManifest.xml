@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.politics.exam"
+    android:versionCode="4"
+    android:versionName="1.0.4">
+
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.GET_TASKS" />
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+    <uses-permission android:name="android.permission.SYSTEM_OVERLAY_WINDOW" />
+
+    <!-- 以下为银行卡支付需多添加的权限 -->
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE" />
+
+    <!-- 以下为银行卡支付需多添加的权限 -->
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.GET_TASKS" />
+    <uses-permission android:name="android.permission.NFC" />
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+    <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE" />
+    <uses-feature android:name="android.hardware.nfc.hce" />
+
+    <application
+        android:name=".PoliticsApplication"
+        android:allowBackup="true"
+        android:icon="@mipmap/logo_app"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/logo_app"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+
+        <meta-data
+            android:name="APP_ID"
+            android:value="371efd0d66fe821ad3ad2def84ce1c63" />
+        <meta-data
+            android:name="APP_PID"
+            android:value="${APP_CHANNEL_VALUE}" />
+
+        <activity android:name=".activity.WelcomeActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".activity.HomePageActivity" />
+        <activity android:name=".activity.QuestionDetailActivity" />
+        <activity android:name=".activity.SearchActivity" />
+        <activity android:name=".activity.SearchDetailActivity" />
+        <activity android:name=".activity.ExamDetailActivity" />
+        <activity android:name=".activity.AboutActivity" />
+        <activity android:name=".activity.WrongQuestionDetailActivity"/>
+        <activity android:name=".activity.WrongQuestionListActivity"/>
+        <activity android:name=".activity.IjkFullscreenActivity"/>
+        <!--                     Wap Pay                        -->
+        <activity
+            android:name="com.wanpu.pay.PayView"
+            android:configChanges="keyboardHidden|orientation" />
+        <activity
+            android:name="com.payeco.android.plugin.PayecoPluginLoadingActivity"
+            android:exported="true"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.Translucent"
+            android:windowSoftInputMode="adjustPan|stateHidden" />
+
+        WanpuPay_4.3.3.jar alipaySdk-20180601.jar alipayutdid.jar android-support-v13.jar
+        payecopluginjar.jar TenpayServiceSDK_V5.0.jar UPPayAssistEx.jar UPPayPluginExPro.jar
+
+        <activity
+            android:name="com.payeco.android.plugin.PayecoOrderDetailActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan|stateHidden" />
+        <activity
+            android:name="com.payeco.android.plugin.PayecoPayResultActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan|stateHidden" />
+        <activity
+            android:name="com.payeco.android.plugin.PayecoWebViewActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan|stateHidden" />
+        <activity
+            android:name="com.payeco.android.plugin.PayecoRiskControlActivity"
+            android:configChanges="orientation|keyboardHidden"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan|stateHidden" />
+        <activity
+            android:name="com.unionpay.uppay.PayActivity"
+            android:configChanges="orientation|keyboardHidden"
+            android:excludeFromRecents="true"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.UPPay" />
+        <activity
+            android:name="com.alipay.sdk.app.H5PayActivity"
+            android:configChanges="orientation|keyboardHidden|navigation"
+            android:exported="false"
+            android:screenOrientation="behind" />
+    </application>
+
+</manifest>

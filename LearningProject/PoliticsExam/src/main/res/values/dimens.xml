@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="font_size_10">10sp</dimen>
+    <dimen name="font_size_12">12sp</dimen>
+    <dimen name="font_size_14">14sp</dimen>
+    <dimen name="font_size_16">16sp</dimen>
+    <dimen name="font_size_17">17sp</dimen>
+    <dimen name="font_size_18">18sp</dimen>
+    <dimen name="font_size_19">19sp</dimen>
+    <dimen name="font_size_20">20sp</dimen>
+    <dimen name="font_size_22">22sp</dimen>
+    <dimen name="font_size_24">24sp</dimen>
+    <dimen name="font_size_26">26sp</dimen>
+    <dimen name="font_size_28">28sp</dimen>
+    <dimen name="font_size_30">30sp</dimen>
+
+    <dimen name="frame_layout_content_height">600dp</dimen>
+    <dimen name="payeco_smaller_textsize">14.0sp</dimen>
+    <dimen name="payeco_small_textsize">15.0sp</dimen>
+    <dimen name="payeco_normal_textsize">16.0sp</dimen>
+    <dimen name="payeco_middle_textsize">17.0sp</dimen>
+    <dimen name="payeco_large_textsize">18.0sp</dimen>
+    <dimen name="payeco_larger_textsize">22.0sp</dimen>
+    <dimen name="payeco_button_textsize">18.0sp</dimen>
+    <dimen name="payeco_pw_textsize">20.0sp</dimen>
+    <dimen name="payeco_pwkeyboard_button_textsize">17.0sp</dimen>
+
+</resources>

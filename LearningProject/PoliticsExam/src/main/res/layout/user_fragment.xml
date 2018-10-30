@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center">
+
+    <Button
+        android:id="@+id/id_user_fragment_btn_questions"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="20dp"
+        android:text="我的错题"
+        android:textSize="@dimen/font_size_20"
+        android:background="@drawable/rounded_button_selector"/>
+
+
+    <Button
+        android:id="@+id/id_user_fragment_btn_update"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="20dp"
+        android:text="软件更新"
+        android:textSize="@dimen/font_size_20"
+        android:background="@drawable/rounded_button_selector"/>
+
+    <Button
+        android:id="@+id/id_user_fragment_btn_feedback"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="20dp"
+        android:text="用户反馈"
+        android:textSize="@dimen/font_size_20"
+        android:background="@drawable/rounded_button_selector"/>
+
+    <Button
+        android:id="@+id/id_user_fragment_btn_about"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="20dp"
+        android:text="关于我们"
+        android:textSize="@dimen/font_size_20"
+        android:background="@drawable/rounded_button_selector"/>
+
+</LinearLayout>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical">
+    <TextView
+        android:id="@+id/id_search_item_text_subject"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:lines="1"
+        tools:text="马原"
+        android:textColor="@color/font_black"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginRight="10dp"
+        android:textSize="@dimen/font_size_18"
+        android:ellipsize="end"
+        />
+    <TextView
+        android:id="@+id/id_search_item_text_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:lines="3"
+        android:layout_margin="10dp"
+        android:textSize="@dimen/font_size_17"
+        android:textColor="@color/font_black"
+        tools:text="马原马原马原马原马原马原马原马原马原马原马原马原马原马原马原马原马原马原马原马原马原马原"
+        android:ellipsize="end"
+        />
+
+</LinearLayout>
