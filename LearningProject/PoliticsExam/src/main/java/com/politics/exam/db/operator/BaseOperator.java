@@ -11,7 +11,6 @@ import com.politics.exam.entity.ExamInfo;
 import com.politics.exam.entity.OptionInfo;
 import com.politics.exam.entity.QuestionInfo;
 import com.politics.exam.entity.WrongQuestionInfo;
-import com.politics.exam.util.Logger;
 
 import org.w3c.dom.Text;
 

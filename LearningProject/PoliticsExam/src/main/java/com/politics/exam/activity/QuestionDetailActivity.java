@@ -15,6 +15,9 @@ import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
+import com.common.lib.util.IntentManager;
+import com.common.lib.util.SharedPreferenceUtil;
+import com.common.lib.util.Utils;
 import com.politics.exam.R;
 import com.politics.exam.business.AnswerMethod;
 import com.politics.exam.business.MultiSelectionMethod;
@@ -29,11 +32,6 @@ import com.politics.exam.db.operator.ChapterSZDBOperator;
 import com.politics.exam.db.operator.IDBOperator;
 import com.politics.exam.entity.OptionInfo;
 import com.politics.exam.entity.QuestionInfo;
-import com.politics.exam.util.IntentManager;
-import com.politics.exam.util.Logger;
-import com.politics.exam.util.SharedPreferenceUtil;
-import com.politics.exam.util.ToastManager;
-import com.politics.exam.util.Utils;
 import com.politics.exam.widget.CustomDialog;
 import com.politics.exam.widget.DepthPageTransformer;
 

@@ -1,7 +1,6 @@
 package com.politics.exam.db;
 
 import com.politics.exam.entity.WrongQuestionInfo;
-import com.politics.exam.util.Logger;
 
 /**
  * Created by malijie on 2017/6/1.

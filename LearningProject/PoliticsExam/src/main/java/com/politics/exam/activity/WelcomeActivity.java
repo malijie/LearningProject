@@ -9,8 +9,8 @@ import android.view.animation.AlphaAnimation;
 import android.view.animation.Animation;
 import android.widget.ImageView;
 
+import com.common.lib.util.IntentManager;
 import com.politics.exam.R;
-import com.politics.exam.util.IntentManager;
 
 
 /**

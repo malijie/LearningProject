@@ -11,6 +11,12 @@ import android.widget.ExpandableListView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.common.lib.util.SharedPreferenceUtil;
+import com.common.lib.util.ToastManager;
+import com.common.lib.util.Utils;
+import com.pay.lib.wap.PayBaseAction;
+import com.pay.lib.wap.PermissionController;
+import com.pay.lib.wap.VipPayAction;
 import com.politics.exam.R;
 import com.politics.exam.activity.QuestionDetailActivity;
 import com.politics.exam.data.Profile;
@@ -22,12 +28,6 @@ import com.politics.exam.db.operator.ChapterSZDBOperator;
 import com.politics.exam.db.operator.IDBOperator;
 import com.politics.exam.entity.QuestionInfo;
 import com.politics.exam.fragment.QuestionsFragment;
-import com.politics.exam.util.SharedPreferenceUtil;
-import com.politics.exam.util.ToastManager;
-import com.politics.exam.util.Utils;
-import com.politics.exam.wap.PayBaseAction;
-import com.politics.exam.wap.PermissionController;
-import com.politics.exam.wap.VipPayAction;
 
 import java.util.List;
 

@@ -9,7 +9,6 @@ import android.widget.TextView;
 
 import com.politics.exam.R;
 import com.politics.exam.db.operator.BaseOperator;
-import com.politics.exam.util.IntentManager;
 
 /**
  * Created by malijie on 2017/8/25.

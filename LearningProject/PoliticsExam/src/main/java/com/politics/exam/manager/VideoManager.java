@@ -1,8 +1,8 @@
 package com.politics.exam.manager;
 
+import com.common.lib.util.SharedPreferenceUtil;
+import com.common.lib.util.SpKey;
 import com.politics.exam.entity.VideoInfo;
-import com.politics.exam.util.SharedPreferenceUtil;
-import com.politics.exam.util.SpKey;
 
 /**
  * Created by malijie on 2018/10/30.

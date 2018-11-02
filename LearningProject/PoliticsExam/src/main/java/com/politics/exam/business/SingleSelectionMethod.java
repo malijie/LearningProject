@@ -4,13 +4,11 @@ import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 
+import com.common.lib.util.ToastManager;
+import com.common.lib.util.Utils;
 import com.politics.exam.R;
 import com.politics.exam.entity.OptionInfo;
 import com.politics.exam.entity.QuestionInfo;
-import com.politics.exam.entity.WrongQuestionInfo;
-import com.politics.exam.util.Logger;
-import com.politics.exam.util.ToastManager;
-import com.politics.exam.util.Utils;
 
 import java.util.List;
 

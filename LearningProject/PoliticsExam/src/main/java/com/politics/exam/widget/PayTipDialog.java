@@ -6,9 +6,8 @@ import android.content.Context;
 import android.support.annotation.NonNull;
 import android.view.View;
 
-import com.politics.exam.PoliticsApplication;
+import com.common.lib.util.Utils;
 import com.politics.exam.R;
-import com.politics.exam.util.Utils;
 
 /**
  * Created by malijie on 2018/10/29.

@@ -3,10 +3,10 @@ package com.politics.exam.business;
 import android.text.TextUtils;
 import android.view.View;
 
+import com.common.lib.util.ToastManager;
 import com.politics.exam.R;
 import com.politics.exam.entity.OptionInfo;
 import com.politics.exam.entity.QuestionInfo;
-import com.politics.exam.util.ToastManager;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -3,7 +3,8 @@ package com.politics.exam;
 import android.app.Application;
 import android.content.Context;
 
-import com.politics.exam.wap.WapManager;
+import com.common.lib.base.CommonBase;
+import com.pay.lib.wap.WapManager;
 
 
 /**
@@ -17,6 +18,7 @@ public class PoliticsApplication extends Application{
     public void onCreate() {
         super.onCreate();
         sContext = getApplicationContext();
+        CommonBase.init(sContext);
         WapManager.getInstance(sContext);
     }
 }

@@ -14,12 +14,12 @@ import android.view.View;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
+import com.common.lib.util.IntentManager;
+import com.common.lib.util.SharedPreferenceUtil;
+import com.common.lib.util.Utils;
 import com.politics.exam.R;
 import com.politics.exam.db.operator.BaseOperator;
 import com.politics.exam.db.operator.IDBOperator;
-import com.politics.exam.util.IntentManager;
-import com.politics.exam.util.SharedPreferenceUtil;
-import com.politics.exam.util.Utils;
 
 import java.util.List;
 

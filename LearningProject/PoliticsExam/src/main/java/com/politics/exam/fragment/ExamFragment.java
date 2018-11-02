@@ -11,12 +11,9 @@ import android.widget.BaseAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import com.common.lib.util.Utils;
 import com.politics.exam.R;
 import com.politics.exam.activity.ExamDetailActivity;
-import com.politics.exam.activity.SearchActivity;
-import com.politics.exam.db.operator.BaseOperator;
-import com.politics.exam.entity.ExamInfo;
-import com.politics.exam.util.Utils;
 
 import java.util.ArrayList;
 import java.util.List;

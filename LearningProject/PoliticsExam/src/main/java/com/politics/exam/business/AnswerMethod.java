@@ -10,10 +10,9 @@ import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.common.lib.util.Utils;
 import com.politics.exam.R;
 import com.politics.exam.entity.QuestionInfo;
-import com.politics.exam.util.ToastManager;
-import com.politics.exam.util.Utils;
 
 /**
  * Created by malijie on 2017/8/10.

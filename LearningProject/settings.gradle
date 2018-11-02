@@ -1,1 +1,1 @@
-include ':PoliticsExam', ':playerview'
+include ':PoliticsExam', ':PlayerLib', ':PayLib', ':CommonLib'

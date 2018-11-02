@@ -16,8 +16,6 @@ import com.politics.exam.business.SingleSelectionMethod;
 import com.politics.exam.db.operator.BaseOperator;
 import com.politics.exam.entity.OptionInfo;
 import com.politics.exam.entity.QuestionInfo;
-import com.politics.exam.util.IntentManager;
-import com.politics.exam.util.ToastManager;
 
 import java.util.List;
 

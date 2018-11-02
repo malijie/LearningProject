@@ -9,7 +9,6 @@ import com.bumptech.glide.Glide;
 import com.dl7.player.media.IjkPlayerView;
 import com.politics.exam.R;
 import com.politics.exam.entity.VideoInfo;
-import com.politics.exam.util.SharedPreferenceUtil;
 
 public class IjkFullscreenActivity extends AppCompatActivity {
 

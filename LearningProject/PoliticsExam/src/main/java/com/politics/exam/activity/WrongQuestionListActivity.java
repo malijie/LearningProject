@@ -11,10 +11,10 @@ import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import com.common.lib.util.IntentManager;
+import com.common.lib.util.Utils;
 import com.politics.exam.R;
 import com.politics.exam.entity.WrongQuestionInfo;
-import com.politics.exam.util.IntentManager;
-import com.politics.exam.util.Utils;
 
 import java.io.Serializable;
 import java.util.List;

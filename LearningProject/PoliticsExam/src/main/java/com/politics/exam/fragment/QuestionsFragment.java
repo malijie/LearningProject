@@ -15,12 +15,12 @@ import android.widget.EditText;
 import android.widget.ExpandableListView;
 import android.widget.TextView;
 
+import com.common.lib.util.SharedPreferenceUtil;
+import com.common.lib.util.ToastManager;
 import com.politics.exam.R;
 import com.politics.exam.activity.SearchActivity;
 import com.politics.exam.activity.ExamDetailActivity;
 import com.politics.exam.db.DBManager;
-import com.politics.exam.util.SharedPreferenceUtil;
-import com.politics.exam.util.ToastManager;
 import com.politics.exam.widget.MyExpandableListAdapter;
 
 

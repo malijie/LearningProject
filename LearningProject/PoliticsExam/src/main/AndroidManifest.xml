@@ -59,48 +59,7 @@
         <activity android:name=".activity.WrongQuestionDetailActivity"/>
         <activity android:name=".activity.WrongQuestionListActivity"/>
         <activity android:name=".activity.IjkFullscreenActivity"/>
-        <!--                     Wap Pay                        -->
-        <activity
-            android:name="com.wanpu.pay.PayView"
-            android:configChanges="keyboardHidden|orientation" />
-        <activity
-            android:name="com.payeco.android.plugin.PayecoPluginLoadingActivity"
-            android:exported="true"
-            android:screenOrientation="portrait"
-            android:theme="@android:style/Theme.Translucent"
-            android:windowSoftInputMode="adjustPan|stateHidden" />
 
-        WanpuPay_4.3.3.jar alipaySdk-20180601.jar alipayutdid.jar android-support-v13.jar
-        payecopluginjar.jar TenpayServiceSDK_V5.0.jar UPPayAssistEx.jar UPPayPluginExPro.jar
-
-        <activity
-            android:name="com.payeco.android.plugin.PayecoOrderDetailActivity"
-            android:screenOrientation="portrait"
-            android:windowSoftInputMode="adjustPan|stateHidden" />
-        <activity
-            android:name="com.payeco.android.plugin.PayecoPayResultActivity"
-            android:screenOrientation="portrait"
-            android:windowSoftInputMode="adjustPan|stateHidden" />
-        <activity
-            android:name="com.payeco.android.plugin.PayecoWebViewActivity"
-            android:screenOrientation="portrait"
-            android:windowSoftInputMode="adjustPan|stateHidden" />
-        <activity
-            android:name="com.payeco.android.plugin.PayecoRiskControlActivity"
-            android:configChanges="orientation|keyboardHidden"
-            android:screenOrientation="portrait"
-            android:windowSoftInputMode="adjustPan|stateHidden" />
-        <activity
-            android:name="com.unionpay.uppay.PayActivity"
-            android:configChanges="orientation|keyboardHidden"
-            android:excludeFromRecents="true"
-            android:screenOrientation="portrait"
-            android:theme="@style/Theme.UPPay" />
-        <activity
-            android:name="com.alipay.sdk.app.H5PayActivity"
-            android:configChanges="orientation|keyboardHidden|navigation"
-            android:exported="false"
-            android:screenOrientation="behind" />
     </application>
 
 </manifest>

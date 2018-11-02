@@ -68,7 +68,12 @@ android {
         compile files('libs/UPPayPluginExPro.jar')
         compile files('libs/WanpuPay_4.3.3.jar')
 
-        compile project(':playerview')
+        compile project(':PlayerLib')
         compile 'com.github.bumptech.glide:glide:3.7.0'
     }
+}
+
+dependencies {
+    compile project(':PayLib')
+    compile project(':PlayerLib')
 }

@@ -7,11 +7,11 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 
+import com.common.lib.util.IntentManager;
+import com.pay.lib.wap.WapManager;
 import com.politics.exam.R;
 import com.politics.exam.activity.AboutActivity;
 import com.politics.exam.activity.WrongQuestionListActivity;
-import com.politics.exam.util.IntentManager;
-import com.politics.exam.wap.WapManager;
 
 
 

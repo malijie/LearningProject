@@ -11,12 +11,11 @@ import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import com.common.lib.util.IntentManager;
+import com.common.lib.util.Utils;
 import com.politics.exam.R;
 import com.politics.exam.db.operator.BaseOperator;
 import com.politics.exam.entity.QuestionInfo;
-import com.politics.exam.util.IntentManager;
-import com.politics.exam.util.Logger;
-import com.politics.exam.util.Utils;
 
 import java.util.ArrayList;
 import java.util.List;

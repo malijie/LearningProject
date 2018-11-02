@@ -15,12 +15,12 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.common.lib.util.ToastManager;
+import com.common.lib.util.Utils;
 import com.politics.exam.R;
 import com.politics.exam.business.IAnswerMethod;
 import com.politics.exam.business.SelectionMethod;
 import com.politics.exam.entity.WrongQuestionInfo;
-import com.politics.exam.util.ToastManager;
-import com.politics.exam.util.Utils;
 import com.politics.exam.widget.CustomDialog;
 
 import java.util.ArrayList;

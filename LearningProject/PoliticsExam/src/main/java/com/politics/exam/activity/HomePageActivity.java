@@ -10,14 +10,14 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.common.lib.util.ToastManager;
+import com.pay.lib.wap.PermissionController;
+import com.pay.lib.wap.WapManager;
 import com.politics.exam.R;
 import com.politics.exam.fragment.QuestionsFragment;
 import com.politics.exam.fragment.ExamFragment;
 import com.politics.exam.fragment.UserFragment;
 import com.politics.exam.fragment.VideoLearningFragment;
-import com.politics.exam.util.ToastManager;
-import com.politics.exam.wap.PermissionController;
-import com.politics.exam.wap.WapManager;
 
 
 /**
