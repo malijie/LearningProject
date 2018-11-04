@@ -19,9 +19,9 @@ import android.widget.TextView;
 import com.common.lib.util.SharedPreferenceUtil;
 import com.common.lib.util.ToastManager;
 import com.common.lib.util.Utils;
-import com.pay.lib.wap.PayBaseAction;
-import com.pay.lib.wap.PermissionController;
-import com.pay.lib.wap.VipPayAction;
+import com.common.lib.util.PermissionController;
+import com.pay.lib.pay.PayBaseInfo;
+import com.pay.lib.pay.PayManager;
 import com.politics.exam.R;
 import com.politics.exam.activity.IjkFullscreenActivity;
 import com.politics.exam.data.Profile;
@@ -44,6 +44,8 @@ public class VideoLearningFragment extends Fragment{
     private static final String[][] VIDEO_ITEM = Profile.VIDEO_ITEM;
     private static final String[][] VIDEO_LENGTH = Profile.VIDEO_LENGTH;
     private static final String[][] VIDEO_URL = Profile.VIDEO_URL;
+
+    private PayManager mPayManager = null;
 
 
 
@@ -194,12 +196,12 @@ public class VideoLearningFragment extends Fragment{
     }
 
     private void showPayTip() {
-        final CustomDialog dialog = new CustomDialog(getActivity(), PayBaseAction.GOODS_NAME_VIDEO,PayBaseAction.GOODS_DESCR_VIDEO);
+        final CustomDialog dialog = new CustomDialog(getActivity(), PayBaseInfo.ITEM_POLITICS_VIDEO,PayBaseInfo.ITEM_POLITICS_VIDEO_DESCR);
         dialog.setButtonClickListener(new CustomDialog.DialogButtonListener() {
             @Override
             public void onConfirm() {
                 if(PermissionController.checkPermission(getActivity())){
-                    new VipPayAction(getActivity()).payVideo();
+                    mPayManager.payForPoliticsVideo();
                     dialog.dissmiss();
                 }else{
                     ToastManager.showLongMsg("未打开权限，请到设置-应用中打开相关权限后完成支付");
@@ -217,7 +219,7 @@ public class VideoLearningFragment extends Fragment{
     }
 
     private void initData(){
-
+        mPayManager = PayManager.getInstace(getActivity());
     }
 
 

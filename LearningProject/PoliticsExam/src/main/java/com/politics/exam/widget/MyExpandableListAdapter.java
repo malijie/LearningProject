@@ -14,9 +14,9 @@ import android.widget.TextView;
 import com.common.lib.util.SharedPreferenceUtil;
 import com.common.lib.util.ToastManager;
 import com.common.lib.util.Utils;
-import com.pay.lib.wap.PayBaseAction;
-import com.pay.lib.wap.PermissionController;
-import com.pay.lib.wap.VipPayAction;
+import com.common.lib.util.PermissionController;
+import com.pay.lib.pay.PayBaseInfo;
+import com.pay.lib.pay.PayManager;
 import com.politics.exam.R;
 import com.politics.exam.activity.QuestionDetailActivity;
 import com.politics.exam.data.Profile;
@@ -48,11 +48,13 @@ public class MyExpandableListAdapter extends BaseExpandableListAdapter {
     private IDBOperator mOperator = null;
     private int mQuestionCounts = 0;
     private int mCurrentGroupId = 0;
+    private PayManager mPayManager = null;
 
 
     public MyExpandableListAdapter(ExpandableListView expandListView,Fragment fragment){
         mExpandListView = expandListView;
         mFragment = fragment;
+        mPayManager = PayManager.getInstace(getActivity());
     }
 
     private String[] mSubjects = new String[]{
@@ -163,12 +165,12 @@ public class MyExpandableListAdapter extends BaseExpandableListAdapter {
     }
 
     private void showPayTip() {
-        final CustomDialog dialog = new CustomDialog(getActivity(), PayBaseAction.GOODS_NAME_VIP,PayBaseAction.GOODS_DESCR_VIP);
+        final CustomDialog dialog = new CustomDialog(getActivity(), PayBaseInfo.ITEM_POLITICS_QUESTION,PayBaseInfo.ITEM_POLITICS_QUESTION_DESCR);
         dialog.setButtonClickListener(new CustomDialog.DialogButtonListener() {
             @Override
             public void onConfirm() {
                 if(PermissionController.checkPermission(getActivity())){
-                    new VipPayAction(getActivity()).payQuestion();
+                    mPayManager.payForPoliticsQuestions();
                     dialog.dissmiss();
                 }else{
                     ToastManager.showLongMsg("未打开权限，请到设置-应用中打开相关权限后完成支付");

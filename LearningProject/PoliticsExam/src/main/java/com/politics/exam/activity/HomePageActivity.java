@@ -11,7 +11,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.common.lib.util.ToastManager;
-import com.pay.lib.wap.PermissionController;
+import com.common.lib.util.PermissionController;
 import com.pay.lib.wap.WapManager;
 import com.politics.exam.R;
 import com.politics.exam.fragment.QuestionsFragment;
